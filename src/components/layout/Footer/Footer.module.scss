@@ -1,0 +1,22 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.root {
+  footer {
+    text-align: center;
+    background: $color-darkness;
+    color: $color-light;
+    height: 50px;
+    padding-top: 15px;
+    bottom: 0;
+    width: 100%;
+  
+    small {
+      font-size: 14px;  
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+}
+
+

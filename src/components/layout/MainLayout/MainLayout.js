@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Footer from '../Footer/Footer';
 
 import clsx from 'clsx';
 
@@ -12,6 +13,7 @@ const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
     <h2>MainLayout</h2>
     {children}
+    <Footer />
   </div>
 );
 
