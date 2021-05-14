@@ -1,4 +1,25 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+  background: $color-dark;
+
+  .flag {
+    width: 100px;
+    max-width: 100px;
+  }
+  
+  .intro {
+    display: flex;
+    margin: 0 0 ($base-size * 3) 0;
+  }
+}
+
+.detailsBox {
+  background-color: $color-dark;
+}
+
+.link {
+  color: $color-light;
+  text-decoration: none;
+  right: 150px;
+}

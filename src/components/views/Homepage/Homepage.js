@@ -1,37 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import PostsSummary from '../PostsSummary/PostsSummary';
 
-import clsx from 'clsx';
-
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+//import clsx from 'clsx';
 
 import styles from './Homepage.module.scss';
+import Paper from '@material-ui/core/Paper';
+//import Grid from '@material-ui/core/Grid';
 
-const Component = ({className, children}) => (
-  <div className={clsx(className, styles.root)}>
-    <h2>Homepage</h2>
-    {children}
-  </div>
-);
+/* import PageTitle from '../../common/PageTitle/PageTitle';
+import {Grid, Row, Col} from 'react-flexbox-grid'; */
 
-Component.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
+const Homepage = ( {posts, fetchPublishedPosts } ) => {
+  
+  useEffect(() => {
+    fetchPublishedPosts();
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  
+  return(
+    <div className={styles.root}>
+      {posts.length ? posts.map(post => (
+        <Paper elevation={3} className={styles.paper}>  
+          <PostsSummary key={post._id} {...post} />
+        </Paper>  
+      )) : (
+        <p>Sorry, no results found. Try adjusting the filters.</p>
+      )}
+    </div>
+  )
+  
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
-export {
-  Component as Homepage,
-  // Container as Homepage,
-  Component as HomepageComponent,
+Homepage.propTypes = {
+  posts: PropTypes.array,
 };
+
+export default Homepage;

@@ -1,4 +1,40 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+  background: $color-dark;
+  
+  .textField {
+    margin: 5px;
+    background-color: $color-dark;
+    color: $color-light;
+    
+    label {
+      color: $color-light;
+    }
+    
+    div {
+      color: $color-light;
+    }
+
+  }
+
+  .intro {
+    display: flex;
+    margin: 0 0 ($base-size * 2) 0;
+    max-width: 446px;
+  }
+
+  .button {
+    background-color: $color-warning;
+    color: $color-light;
+    font-family: $font-text;
+    font-weight: bold;
+    text-shadow: 5px;
+    margin-bottom: 35px;
+    margin-left: 75px;
+  }
+
+  .input {
+    display: none;
+  }
+}
