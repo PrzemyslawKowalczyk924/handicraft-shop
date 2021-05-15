@@ -11,7 +11,7 @@ import Paper from '@material-ui/core/Paper';
 /* import PageTitle from '../../common/PageTitle/PageTitle';
 import {Grid, Row, Col} from 'react-flexbox-grid'; */
 
-const Homepage = ( {posts, fetchPublishedPosts } ) => {
+const Homepage = ( {products, fetchPublishedPosts } ) => {
   
   useEffect(() => {
     fetchPublishedPosts();
@@ -20,9 +20,9 @@ const Homepage = ( {posts, fetchPublishedPosts } ) => {
   
   return(
     <div className={styles.root}>
-      {posts.length ? posts.map(post => (
+      {products.length ? products.map(product => (
         <Paper elevation={3} className={styles.paper}>  
-          <PostsSummary key={post._id} {...post} />
+          <PostsSummary key={product.id} {...product} />
         </Paper>  
       )) : (
         <p>Sorry, no results found. Try adjusting the filters.</p>
@@ -33,7 +33,7 @@ const Homepage = ( {posts, fetchPublishedPosts } ) => {
 };
 
 Homepage.propTypes = {
-  posts: PropTypes.array,
+  product: PropTypes.array,
 };
 
 export default Homepage;

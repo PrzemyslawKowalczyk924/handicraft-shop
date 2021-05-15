@@ -3,12 +3,12 @@
 
 .root {
   position: relative;
-  min-height: 100vh;
+  min-height: 5vh;
 
   footer {
     position: absolute;
     text-align: center;
-    background: $color-darkness;
+    //background: $color-darkness;
     color: $color-light;
     height: 50px;
     padding-top: 15px;

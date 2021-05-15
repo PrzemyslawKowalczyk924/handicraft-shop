@@ -8,12 +8,14 @@
 body {
   margin: 0;
   padding: 0;
-  background: $color-light;
+  //background: $color-light;
   font-family: $font-text;
   font-size: ($base-size * 1.1);
+  text-shadow: 1px 1px 2px black;
   color: $color-light;
   letter-spacing: 0.5px;
   overflow-y: scroll;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.pixabay.com/photo/2015/12/03/08/50/paper-1074131_960_720.jpg");
 }
 
 :global(.container) {

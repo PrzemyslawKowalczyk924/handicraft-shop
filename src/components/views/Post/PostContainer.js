@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
 import Post from './Post';
-import { getSinglePost, fetchPublishedById } from '../../../redux/postsRedux';
+import { getProductById, getSingleProduct, fetchPublishedById } from '../../../redux/postsRedux';
 import { getUserInfo } from '../../../redux/userRedux';
 
-const mapStateToProps = (state) => ({
+/* const mapStateToProps = (state) => ({
   user: getUserInfo(state),
-  ...getSinglePost(state),
+  ...getSingleProduct(state),
+}); */
+
+const mapStateToProps = (state, props) => ({
+  ...getProductById(state, props.match.params.id),
 });
 
-const mapDispatchToProps = (dispatch, props) => ({
+/* const mapDispatchToProps = (dispatch, props) => ({
   getPostById: () => dispatch(fetchPublishedById(props.match.params.id)),
-  });
+  }); */
 
-export default connect(mapStateToProps, mapDispatchToProps)(Post);
+export default connect(mapStateToProps /* , mapDispatchToProps */)(Post);

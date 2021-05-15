@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import TripPrice from './TripPrice';
+import TripPrice from './ProductPrice';
 
 const mockProps = {
   icon: 'Lorem',

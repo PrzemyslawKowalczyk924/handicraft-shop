@@ -3,7 +3,7 @@ import Homepage from './Homepage';
 import { getAll, fetchPublished } from '../../../redux/postsRedux';
 
 const mapStateToProps = (state) => ({
-  posts: getAll(state),
+  products: getAll(state),
 });
 
 const mapDispatchToProps = dispatch => ({

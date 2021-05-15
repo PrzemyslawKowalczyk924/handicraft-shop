@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 import styles from './Post.module.scss';
 
 import {Grid, Row, Col} from 'react-flexbox-grid';
-import TripPrice from '../../features/TripPrice/TripPrice';
+import ProductPrice from '../../features/ProductPrice.js/ProductPrice';
 
 import PageTitle from '../../common/PageTitle/PageTitle';
 import DetailsBox from '../../common/DetailsBox/DetailsBox';
@@ -17,7 +17,7 @@ import ListItem from '../../common/ListItem/ListItem';
 import Icon from '../../common/Icon/Icon';
 
 const Post = ({getPostById, 
-  _id, user, title, photo, text, author, price, location, status, phone, created, updated, email }) => {
+  id, user, title, photo, text, author, price, location, status, phone, created, updated, email }) => {
 
   useEffect(() => {
     getPostById();
@@ -35,7 +35,7 @@ const Post = ({getPostById,
         </DetailsImage>
         <Grid>
           <Row>
-          {user.status ? <Link to={`/post/${_id}/edit`} className={styles.link}>
+          {user.status ? <Link to={`/post/${id}/edit`} className={styles.link}>
               <Icon name={'cog'}/>
             </Link> : null}
             <Col md={12} lg={4}>
@@ -50,7 +50,7 @@ const Post = ({getPostById,
                 <ListItem title={email} icon={'envelope-square'} />
                 <ListItem title={'Country' + location} icon={'globe-europe'} />
                 <ListItem title={'Phone' + phone} icon={'phone'} />
-                <TripPrice icon={'money-bill-wave'} cost={price}/>
+                <ProductPrice icon={'money-bill-wave'} cost={price}/>
               </List>
             </Col>
           </Row>
