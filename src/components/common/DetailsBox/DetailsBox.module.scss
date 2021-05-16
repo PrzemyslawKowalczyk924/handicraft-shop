@@ -2,9 +2,10 @@
 
 .component {
   position: relative;
-  padding: ($base-size * 5) 0;
+  //padding: ($base-size * 5) 0;
   margin-bottom: ($base-size * 3);
-  background: $color-darkness;
+  //background-color: rgba(1,1,1,0.05);
+
   &.small {
     height: 200px;
     margin-bottom: 0;
@@ -29,6 +30,10 @@
 }
 
 @media (max-width: 767px) {
+
+  .image {
+    position: relative;
+  }
 
   .component {
     &.small {

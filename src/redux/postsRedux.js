@@ -3,7 +3,7 @@ import axios from 'axios';
 /* selectors */
 export const getAll = ({products}) => products.data;
 export const getSingleProduct = ({products}) => products.singleProduct;
-export const getProductById = ({ posts }, postId) => posts.data.filter(post => post.id === postId)[0];
+export const getProductById = ({ products }, productId) => products.data.filter(product => product.id === productId)[0];
 
 /* action name creator */
 const reducerName = 'products';

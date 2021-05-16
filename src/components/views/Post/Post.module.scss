@@ -1,7 +1,8 @@
 @import '../../../styles/settings.scss';
 
 .root {
-  background: $color-dark;
+  //background: $color-dark;
+  color: $color-light;
 
   .flag {
     width: 100px;
@@ -14,12 +15,20 @@
   }
 }
 
-.detailsBox {
-  background-color: $color-dark;
-}
-
 .link {
   color: $color-light;
   text-decoration: none;
   right: 150px;
+  padding-left: 24px;
+  strong {
+    margin-left: 20px;
+  }
+}
+
+/* .seperation {
+  margin-bottom: 15px;
+} */
+
+.row {
+  margin-bottom: 25px;
 }

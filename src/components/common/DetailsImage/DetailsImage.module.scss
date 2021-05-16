@@ -16,3 +16,11 @@
     object-fit: cover;
   }
 }
+
+@media(max-width: 425px) {
+  .component {
+    position: unset;
+    width: unset;
+    margin-bottom: 15px;
+  }
+}

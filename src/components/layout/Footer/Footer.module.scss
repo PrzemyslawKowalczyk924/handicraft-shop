@@ -4,6 +4,9 @@
 .root {
   position: relative;
   min-height: 5vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.pixabay.com/photo/2016/11/21/17/57/wood-1846849_960_720.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 
   footer {
     position: absolute;
@@ -16,11 +19,10 @@
     width: 100%;
   
     small {
-      font-size: 14px;  
+      font-size: 12px;  
       margin-bottom: 0;
       margin-top: 0;
     }
   }
 }
-
 

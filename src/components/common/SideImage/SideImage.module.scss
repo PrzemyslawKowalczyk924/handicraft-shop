@@ -1,9 +1,11 @@
 @import '../../../styles/settings.scss';
 
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
 
   .component {
-    display: none;
+    position:unset;
+    display: flex;
+    flex-wrap: wrap;
   }
 
-}
+} */
