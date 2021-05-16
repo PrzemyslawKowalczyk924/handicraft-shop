@@ -5,12 +5,15 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { initialState } from './initialState';
 import { reducer as postsReducer } from './postsRedux';
 import { reducer as userReducer } from './userRedux';
+import { reducer as cartReducer } from './cartRedux';
 
 // define reducers
 const reducers = {
   user: userReducer,
   posts: postsReducer,
+  cart: cartReducer,
 };
+console.log(reducers);
 
 // add blank reducers for initial state properties without reducers
 Object.keys(initialState).forEach(item => {

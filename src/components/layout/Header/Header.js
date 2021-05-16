@@ -9,7 +9,7 @@ import styles from './Header.module.scss';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Icon from '../../common/Icon/Icon';
 
-const Component = ({user, setOnline, setOffline/* , cartAmount */}) => {
+const Component = ({/* user, setOnline, setOffline, */ cartAmount}) => {
 
   return (
     <div className={styles.root}>
@@ -20,9 +20,6 @@ const Component = ({user, setOnline, setOffline/* , cartAmount */}) => {
               <div className={styles.logo}>
                 <Icon name='paper-plane' />
                 <span className={styles.name}>handicraft shop</span>
-                <a className={styles.hamburger} onclick="myFunction()">
-                  <i class="fa fa-bars"></i>
-                </a> 
               </div>
             </Link>
           </Col>
@@ -30,15 +27,15 @@ const Component = ({user, setOnline, setOffline/* , cartAmount */}) => {
             <nav>
               {/* user.status ? */ <NavLink to='/post/add' activeClassName='active'>Add Post</NavLink> /* : null */ }
               {/* user.status ? */ <NavLink to='/post' activeClassName='active'>My Post&apos;s</NavLink> /* : null */ }
-              {/* user.status ? */ <NavLink to='/post' activeClassName='active' onClick={() => setOffline(false)}>Logout</NavLink> /* : null */ }
-              {/* !user.status ? */ <NavLink to='/auth/google' activeClassName='active' onClick={() => setOnline(true)}>Login with Google</NavLink> /* : null */ }
+              {/* user.status ? */ <NavLink to='/post' activeClassName='active' /* onClick={() => setOffline(false)} */>Logout</NavLink> /* : null */ }
+              {/* !user.status ? */ <NavLink to='/auth/google' activeClassName='active' /* onClick={() => setOnline(true)} */>Login with Google</NavLink> /* : null */ }
               {<NavLink to='/cart' >
-                <div className={styles.cart}><Icon className={styles.icon} name='shopping-cart' />0</div>
+                <div className={styles.cart}><Icon className={styles.icon} name='shopping-cart' />{cartAmount}</div>
               </NavLink>}
             </nav>
           </Col>
         </Row>
-      </Grid>{/*  */}
+      </Grid>
     </div>
   );  
 };
@@ -47,7 +44,7 @@ Component.propTypes = {
   user: PropTypes.object,
   setOnline: PropTypes.func,
   setOffline: PropTypes.func,
-  //cartAmount: PropTypes.number,
+  cartAmount: PropTypes.number,
 };
 
 /* const mapStateToProps = state => ({

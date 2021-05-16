@@ -12,6 +12,7 @@ import Homepage from './components/views/Homepage/HomepageContainer';
 import Post from './components/views/Post/PostContainer';
 import PostEdit from './components/views/PostEdit/PostEditContainer';
 import PostAdd from './components/views/PostAdd/PostAddContainer';
+import Cart from './components/features/Cart/Cart';
 import { NotFound } from './components/views/NotFound/NotFound';
 
 const theme = createMuiTheme({
@@ -32,6 +33,7 @@ const App = () => (
               <Route exact path='/post/add' component={PostAdd} />
               <Route exact path='/post/:id' component={Post} />
               <Route exact path='/post/:id/edit' component={PostEdit} />
+              <Route exact path='/cart' component={Cart} />
               <Route path='*' component={NotFound} />
             </Switch>
           </MainLayout>
