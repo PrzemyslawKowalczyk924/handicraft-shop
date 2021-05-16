@@ -12,7 +12,7 @@ import Homepage from './components/views/Homepage/HomepageContainer';
 import Post from './components/views/Post/PostContainer';
 import PostEdit from './components/views/PostEdit/PostEditContainer';
 import PostAdd from './components/views/PostAdd/PostAddContainer';
-import Cart from './components/features/Cart/Cart';
+import Cart from './components/features/Cart/CartContainer';
 import { NotFound } from './components/views/NotFound/NotFound';
 
 const theme = createMuiTheme({

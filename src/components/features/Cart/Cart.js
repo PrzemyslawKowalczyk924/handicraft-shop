@@ -3,7 +3,7 @@ import styles from './Cart.module.scss';
 import Icon from '../../common/Icon/Icon';
 import Button from '../../common/Button/Button';
 
-const Cart = ({productsInCart, removeProduct, changeAmount}) => {
+const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCart}) => {
 
   const [value, setValue] = useState(0);
 
@@ -43,10 +43,7 @@ const Cart = ({productsInCart, removeProduct, changeAmount}) => {
         <div className={`row align-items-center ${styles.header}`}>
           <div className={`col text-left ${styles.cart}`}>
             <p className={styles.title}>Cart</p>
-          </div>
-          <div className={`col text-right ${styles.iconBox}`}>
-            <Icon name="faHome" />
-            {`> Cart`}
+            <p>{amountOfProductsInCart}</p>
           </div>
         </div>
       </div>

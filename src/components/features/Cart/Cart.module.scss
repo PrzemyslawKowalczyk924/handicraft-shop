@@ -1,0 +1,214 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  margin: 30px auto;
+  text-align: center;
+}
+
+
+.title{
+  font-size: 25px;
+  margin: 0 auto;
+}
+
+.iconBox{
+  font-size: 14px;
+  margin: 0 auto;
+}
+
+.header{
+  margin: 0;
+  padding: 0 15px;
+  height: 60px;
+  //background-color: $grey-color;
+  align-items: center;
+  //color: $creme-main;
+}
+
+.thead {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.productRemover {
+  cursor: pointer;
+  //color: $creme-transparent;
+  &:hover{
+    color: $color-darkness;
+  }
+}
+
+.productImage {
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.theadItem {
+  text-align: left;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  .item1{
+    width: 50px;
+  }
+  .item2{
+    width: 110px;
+  }
+  .item3{
+    width: 520px;
+  }
+  .item4{
+    width: 165px;
+  }
+  .item5{
+    width: 165px;
+  }
+  .item6{
+    width: 165px;
+  }
+  th, td {
+    vertical-align: middle;
+
+    span {
+      width: auto;
+      height: auto;
+      margin: 0;
+    }
+  }
+
+  .totalPrice {
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+}
+
+.table {
+  padding-top: 20px;
+  margin-left: auto;
+  margin-right: 0;
+  width: 500px;
+}
+
+.tableTotal {
+  width: 500px;
+  height: 150px;
+}
+
+.buttons{
+  display: flex;
+  align-items: center;
+  .button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 155px;
+    height: 35px;
+    text-transform: uppercase;
+    margin: 15px;
+  }
+  .button2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 35px;
+    text-transform: uppercase;
+    margin-left: auto;
+
+  }
+  .checkoutButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 35px;
+    text-transform: uppercase;
+    padding: 0;
+  }
+}
+
+.input{
+  width: 150px;
+  height: 35px;
+  font-size: 13px;
+}
+
+.quantity {
+  margin: 5px;
+  min-width: 125px;
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  }
+  .inputNumber {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+  }
+  .buttonQty {
+    color:$color-dark-2;
+    cursor: pointer;
+    font-size: 13px;
+    margin: 3px;
+    border: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .root{
+    font-size: 80%;
+  }
+
+  .table{
+    width: 50%;
+    margin-left: auto;
+  }
+
+  .tableTotal{
+    width: 50%;
+    margin-left: auto;
+    font-size: 80%;
+  }
+
+  .buttons {
+    .button, .button2{
+      font-size: 70%;
+    }
+    .checkoutButton{
+      width: 50%;
+      margin-left: auto;
+      font-size: 70%;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .root{
+    font-size: 70%;
+  }
+
+  .table {
+    width: 30%;
+    margin-left: auto;
+  }
+
+  .tableTotal{
+    width: 40%;
+    margin-left: auto;
+    font-size: 80%;
+  }
+
+  .buttons {
+    .buttons, .button2 {
+      font-size: 70%;
+    }
+    .checkoutButton{
+      width: 115px;
+      margin-left: auto;
+      font-size: 70%;
+    }
+  }
+}
