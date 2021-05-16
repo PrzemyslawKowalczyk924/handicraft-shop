@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {NavLink, Link} from 'react-router-dom';
 
@@ -9,17 +9,20 @@ import styles from './Header.module.scss';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Icon from '../../common/Icon/Icon';
 
-const Component = ({user, setOnline, setOffline}) => {
+const Component = ({user, setOnline, setOffline/* , cartAmount */}) => {
 
   return (
     <div className={styles.root}>
-      <Grid>
+      <Grid className={styles.container}>
         <Row between="md" middle="xs">
           <Col md={3} lg={2}>
             <Link to='/'>
               <div className={styles.logo}>
                 <Icon name='paper-plane' />
                 <span className={styles.name}>handicraft shop</span>
+                <a className={styles.hamburger} onclick="myFunction()">
+                  <i class="fa fa-bars"></i>
+                </a> 
               </div>
             </Link>
           </Col>
@@ -29,6 +32,9 @@ const Component = ({user, setOnline, setOffline}) => {
               {/* user.status ? */ <NavLink to='/post' activeClassName='active'>My Post&apos;s</NavLink> /* : null */ }
               {/* user.status ? */ <NavLink to='/post' activeClassName='active' onClick={() => setOffline(false)}>Logout</NavLink> /* : null */ }
               {/* !user.status ? */ <NavLink to='/auth/google' activeClassName='active' onClick={() => setOnline(true)}>Login with Google</NavLink> /* : null */ }
+              {<NavLink to='/cart' >
+                <div className={styles.cart}><Icon className={styles.icon} name='shopping-cart' />0</div>
+              </NavLink>}
             </nav>
           </Col>
         </Row>
@@ -41,6 +47,7 @@ Component.propTypes = {
   user: PropTypes.object,
   setOnline: PropTypes.func,
   setOffline: PropTypes.func,
+  //cartAmount: PropTypes.number,
 };
 
 /* const mapStateToProps = state => ({

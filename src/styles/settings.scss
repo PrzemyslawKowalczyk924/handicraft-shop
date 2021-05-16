@@ -1,10 +1,13 @@
 $color-light: #fff;
+$color-light-2: #e0e3ed;
 $color-dark: #2f3542;
+$color-dark-2: #363636;
 $color-darkness: #242424;
 $color-success: #26de81;
 $color-warning: #e1644e;
 $color-primary: #ff9f43;
 $color-secondary: #218c74;
+$color-creme: #d58e32;
 
 $font-header: 'Montserrat', sans-serif;
 $font-text: 'Titillium Web', sans-serif;
@@ -12,3 +15,8 @@ $font-text: 'Titillium Web', sans-serif;
 $radius: 5px;
 $base-size: 12px;
 $transition: all 0.5s;
+
+%hover-effect {
+  transition: $transition;
+}
+

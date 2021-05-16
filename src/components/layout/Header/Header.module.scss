@@ -58,6 +58,20 @@
   }
 }
 
+.cart {
+  display: flex;
+  flex-wrap: nowrap;
+  border-bottom: 1px $color-light solid;
+  border-right: 1px $color-light solid;
+  padding-right: 5px;
+
+  :first-child {
+    margin-right: 5px;
+    margin-left: 5px;
+    padding-top: 4px;
+  }
+}
+
 @media (max-width: 767px) {
 
   .component  {
@@ -74,4 +88,22 @@
     margin-top: ($base-size * 1.5);
   }
 
+}
+
+@media (max-width: 425px) {
+
+  .root nav {
+    display: flex;
+    flex-wrap: wrap;
+
+    a {
+      margin: 20px
+    }
+  }
+}
+
+@media(min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
 }
