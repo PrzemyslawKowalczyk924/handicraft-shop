@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PostAdd from './PostAdd';
-import { addPostRequest } from '../../../redux/postsRedux';
+import { addPostRequest } from '../../../redux/productsRedux';
 
 const mapDispatchToProps = dispatch => ({
   addPost: (post) => dispatch(addPostRequest(post)),

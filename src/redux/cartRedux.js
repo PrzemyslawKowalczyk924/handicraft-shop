@@ -1,10 +1,7 @@
 /* selectors */
-export const getAll = ({ cart }) => cart.products;
-export const getCount = ({ cart }) => {
-  let arg = cart.products.length;
-  console.log(arg);
-  return cart.products.length;
-}
+export const getAll = ({cart}) => cart.products;
+export const getCount = ({cart}) => cart.products.length;
+
 /* action name creator */
 const reducerName = 'cart';
 const createActionName = name => `app/${reducerName}/${name}`;

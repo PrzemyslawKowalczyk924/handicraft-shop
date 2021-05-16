@@ -13,10 +13,10 @@ import {Grid, Row, Col} from 'react-flexbox-grid'; */
 
 const Homepage = ( {products, fetchPublishedPosts } ) => {
   
-  useEffect(() => {
+  /* useEffect(() => {
     fetchPublishedPosts();
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []) */
   
   return(
     <div className={styles.root}>

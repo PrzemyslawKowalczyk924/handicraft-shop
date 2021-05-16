@@ -3,14 +3,14 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { initialState } from './initialState';
-import { reducer as postsReducer } from './postsRedux';
+import { reducer as productsReducer } from './productsRedux';
 import { reducer as userReducer } from './userRedux';
 import { reducer as cartReducer } from './cartRedux';
 
 // define reducers
 const reducers = {
   user: userReducer,
-  posts: postsReducer,
+  products: productsReducer,
   cart: cartReducer,
 };
 console.log(reducers);

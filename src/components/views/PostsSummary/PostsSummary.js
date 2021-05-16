@@ -4,8 +4,10 @@ import styles from './PostsSummary.module.scss';
 import {Col} from 'react-flexbox-grid';
 import {Link} from 'react-router-dom';
 import ProductPrice from '../../features/ProductPrice.js/ProductPrice';
+import Button from '../../common/Button/Button';
+import Icon from '../../common/Icon/Icon';
 
-const PostsSummary = ({id, author, price, photo, title, created}) => (
+const PostsSummary = ({id, price, photo, title, addToCart}) => (
   <Col xs={12} sm={12} lg={12} className={styles.column}>
     <Link to={`/post/${id}`} className={styles.link}>
       <article className={styles.component}>

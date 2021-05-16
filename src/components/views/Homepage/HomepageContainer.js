@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Homepage from './Homepage';
-import { getAll, fetchPublished } from '../../../redux/postsRedux';
+import { getAll, fetchPublished } from '../../../redux/productsRedux';
 
 const mapStateToProps = (state) => ({
   products: getAll(state),

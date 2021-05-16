@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Post from './Post';
-import { getProductById, getSingleProduct, fetchPublishedById } from '../../../redux/postsRedux';
+import { getProductById, getSingleProduct, fetchPublishedById } from '../../../redux/productsRedux';
 import { getUserInfo } from '../../../redux/userRedux';
 
 /* const mapStateToProps = (state) => ({

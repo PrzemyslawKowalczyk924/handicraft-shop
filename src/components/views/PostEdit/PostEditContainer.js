@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PostEdit from './PostEdit';
-import { getProductById, getSinglePost, EditPostRequest, fetchPublishedById } from '../../../redux/postsRedux';
+import { getProductById, getSinglePost, EditPostRequest, fetchPublishedById } from '../../../redux/productsRedux';
 import { getUserInfo } from '../../../redux/userRedux';
 
 const mapStateToProps = (state, props) => ({

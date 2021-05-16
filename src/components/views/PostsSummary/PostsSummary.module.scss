@@ -71,3 +71,19 @@
   padding: ($base-size / 2);
   margin-right: $base-size;
 }
+
+.buttons {
+  @extend %hover-effect;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0;
+  .button {
+    flex: 50%;
+    padding: 5px;
+    text-align: center;
+  }
+}
+
+.root:hover .buttons {
+  opacity: 1;
+}
