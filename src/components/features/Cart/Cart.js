@@ -43,7 +43,6 @@ const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCa
         <div className={`row align-items-center ${styles.header}`}>
           <div className={`col text-left ${styles.cart}`}>
             <p className={styles.title}>Cart</p>
-            <p>{amountOfProductsInCart}</p>
           </div>
         </div>
       </div>
@@ -129,15 +128,6 @@ const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCa
           </table>
         </div>
         <div className={styles.buttons}>
-          <label htmlFor='coupon-code'></label>
-          <input
-            type='text'
-            placeholder='Coupon code'
-            className={styles.input}
-          ></input>
-          <Button variant='small' className={styles.button}>
-            Apply coupon
-          </Button>
           <Button variant='small' className={styles.button2}>
             Update cart
           </Button>

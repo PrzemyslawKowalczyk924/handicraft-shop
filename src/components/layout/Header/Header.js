@@ -9,7 +9,7 @@ import styles from './Header.module.scss';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Icon from '../../common/Icon/Icon';
 
-const Component = ({/* user, setOnline, setOffline, */ cartAmount}) => {
+const Header = ({/* user, setOnline, setOffline, */ cartAmount}) => {
 
   return (
     <div className={styles.root}>
@@ -40,7 +40,7 @@ const Component = ({/* user, setOnline, setOffline, */ cartAmount}) => {
   );  
 };
 
-Component.propTypes = {
+Header.propTypes = {
   user: PropTypes.object,
   setOnline: PropTypes.func,
   setOffline: PropTypes.func,
@@ -58,8 +58,4 @@ const mapDispatchToProps = dispatch => ({
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component); */
 
-export {
-  Component as Header,
-  //Container as Header,
-  Component as HeaderComponent,
-};
+export default Header;

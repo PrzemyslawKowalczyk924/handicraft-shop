@@ -8,7 +8,7 @@ import clsx from 'clsx';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './MainLayout.module.scss';
-import { Header } from '../Header/Header';
+import Header from '../Header/HeaderContainer';
 
 const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>

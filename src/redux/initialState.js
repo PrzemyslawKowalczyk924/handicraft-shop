@@ -324,6 +324,20 @@ export const initialState = {
     singleProduct: {},
   },
   cart: {
-    products: [],
+    products: [{
+      id: '21',
+      author: 'Leon Carpenter',
+      created: '17.07.2009',
+      updated: '03.05.2012',
+      status: 'published',
+      title: 'Puzzle with own Painting',
+      text: 'This message is made by initialState.js component, and render fine. So Im happy',
+      photo: 'https://images.unsplash.com/photo-1494059980473-813e73ee784b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80',
+      price: 0.40,
+      phone: '234324543',
+      addres: '11 listopada street',
+      email: 'neo@example.com',
+      category: 'painting'
+    },],
   },
 };
