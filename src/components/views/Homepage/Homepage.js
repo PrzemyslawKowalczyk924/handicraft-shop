@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import PostsSummary from '../PostsSummary/PostsSummary';
+import PostsSummary from '../PostsSummary/PostsSummaryContainer';
 
 //import clsx from 'clsx';
 
