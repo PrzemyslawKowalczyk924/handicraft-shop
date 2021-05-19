@@ -3,8 +3,8 @@
 .root {
   margin: 30px auto;
   text-align: center;
+  color: $color-primary;
 }
-
 
 .title{
   font-size: 25px;
@@ -20,9 +20,7 @@
   margin: 0;
   padding: 0 15px;
   height: 60px;
-  //background-color: $grey-color;
   align-items: center;
-  //color: $creme-main;
 }
 
 .thead {
@@ -32,7 +30,6 @@
 
 .productRemover {
   cursor: pointer;
-  //color: $creme-transparent;
   &:hover{
     color: $color-darkness;
   }
@@ -69,6 +66,7 @@
   }
   th, td {
     vertical-align: middle;
+    border-top: 1px solid $color-dark;
 
     span {
       width: auto;
@@ -94,6 +92,8 @@
   width: 500px;
   height: 150px;
 }
+
+
 
 .buttons{
   display: flex;
@@ -125,6 +125,14 @@
     height: 35px;
     text-transform: uppercase;
     padding: 0;
+     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.pixabay.com/photo/2016/11/21/17/57/wood-1846849_960_720.jpg");
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    flex: 50%;
+    padding: 5px;
+    text-align: center;
+    color: $color-primary;
   }
 }
 

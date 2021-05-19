@@ -7,6 +7,14 @@ const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCa
 
   const [value, setValue] = useState(0);
 
+  const removeFromCart = id => {
+    removeProduct({ id });
+  };
+
+  const changeQuantity = (id, type) => {
+    changeAmount({ id, type });
+  };
+
   const finalAmount = product => {
     if (product.quantity === undefined) {
       return 1;
@@ -78,19 +86,19 @@ const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCa
                   <th scope='row'>
                     <Button
                       className={styles.productRemover}
-                      onClick={() => removeProduct(product.id)}
+                      onClick={() => removeFromCart(product.id)}
                     >
-                      <Icon name="faHome" />
+                      <Icon name="times-circle" />
                     </Button>
                   </th>
                   <td>
                     <img
                       className={styles.productImage}
-                      src={product.image}
+                      src={product.photo}
                       alt=''
                     ></img>
                   </td>
-                  <td>{product.name}</td>
+                  <td>{product.title}</td>
                   <td>
                     <span className='price-currency-symbol'>$ </span>
                     {product.price}
@@ -99,9 +107,9 @@ const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCa
                     <Button
                       variant='product'
                       className={styles.buttonQty}
-                      onClick={() => changeAmount(product.id, 'decrease')}
+                      onClick={() => changeQuantity(product.id, 'decrease')}
                     >
-                      <Icon name="faMinus" />
+                      <Icon name="minus" />
                     </Button>
                     <input
                       className={styles.inputNumber}
@@ -113,9 +121,9 @@ const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCa
                     <Button
                       variant='product'
                       className={styles.buttonQty}
-                      onClick={() => changeAmount(product.id, 'increase')}
+                      onClick={() => changeQuantity(product.id, 'increase')}
                     >
-                      <Icon icon="faPlus" />
+                      <Icon name="plus" />
                     </Button>
                   </td>
                   <td>
@@ -127,11 +135,6 @@ const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCa
             </tbody>
           </table>
         </div>
-        <div className={styles.buttons}>
-          <Button variant='small' className={styles.button2}>
-            Update cart
-          </Button>
-        </div>
         <div className={`table ${styles.table}`}>
           <table className={`col ${styles.tableTotal}`}>
             <thead className={styles.thead}>
@@ -141,12 +144,6 @@ const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCa
               </tr>
             </thead>
             <tbody>
-              <tr className={styles.theadItem}>
-                <th scope='col'>Subtotal</th>
-                <td>
-                  <span className='price-currency-symbol'>$ </span>0
-                </td>
-              </tr>
               <tr className={styles.theadItem}>
                 <th scope='col'>Total</th>
                 <td className={styles.totalPrice}>
