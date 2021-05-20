@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styles from './Cart.module.scss';
 import Icon from '../../common/Icon/Icon';
 import Button from '../../common/Button/Button';
+import {Link} from 'react-router-dom';
+import shortid from 'shortid';
 
 const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCart}) => {
 
@@ -153,11 +155,12 @@ const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCa
               </tr>
             </tbody>
           </table>
-          <div className={styles.buttons}>
-            <Button variant='small' className={styles.checkoutButton}>
-              Proceed to checkout
-            </Button>
-          </div>
+          <button className={styles.send}>
+            <Link to={`/cart/payment`} className={styles.link}>
+                <Icon className={styles.iconCheck} name="calendar-check" />
+                <p>Proceed to checkout</p>
+            </Link>
+          </button>
         </div>
       </div>
     </div>

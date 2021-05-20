@@ -5,9 +5,9 @@ import {
   addProduct,
   changeAmount,
   removeProduct,
-  editProduct,
+  getTotalCost,
 } from '../../../redux/cartRedux';
-import Cart from './Cart';
+import Payment from './Payment';
 
 const mapStateToProps = state => ({
   productsInCart: getAll(state),
@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => ({
   addProduct: payload => dispatch(addProduct(payload)),
   changeAmount: payload => dispatch(changeAmount(payload)),
   removeProduct: payload => dispatch(removeProduct(payload)),
-  editProduct: payload => dispatch(editProduct(payload)),
+  getTotalCost: payload => dispatch(getTotalCost(payload)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default connect(mapStateToProps, mapDispatchToProps)(Payment);

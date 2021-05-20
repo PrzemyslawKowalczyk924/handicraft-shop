@@ -117,29 +117,48 @@
     margin-left: auto;
 
   }
-  .checkoutButton{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 500px;
-    height: 35px;
-    text-transform: uppercase;
-    padding: 0;
-     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.pixabay.com/photo/2016/11/21/17/57/wood-1846849_960_720.jpg");
-    margin-top: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    flex: 50%;
-    padding: 5px;
-    text-align: center;
-    color: $color-primary;
-  }
+  
 }
 
 .input{
   width: 150px;
   height: 35px;
   font-size: 13px;
+}
+
+.send {
+  display: flex;
+  max-width: 185px;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 35px;
+  text-transform: uppercase;
+  padding: 0;
+   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.pixabay.com/photo/2016/11/21/17/57/wood-1846849_960_720.jpg");
+  //margin-top: 15px;
+  //margin-left: auto;
+  //margin-right: auto;
+  margin: auto;
+  flex: 50%;
+  padding: 5px;
+  text-align: center;
+  color: $color-primary;
+  i {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+    margin-left: 5px;
+    //margin: auto;
+  }
+}
+
+.link {
+  color: $color-primary;
+  text-decoration: none;
+  display: flex;
+  width: 100%;
+  
 }
 
 .quantity {
@@ -185,7 +204,7 @@
     .button, .button2{
       font-size: 70%;
     }
-    .checkoutButton{
+    .send{
       width: 50%;
       margin-left: auto;
       font-size: 70%;
