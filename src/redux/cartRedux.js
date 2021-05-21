@@ -74,6 +74,7 @@ export const reducer = (statePart = [], action = {}) => {
         return product;
       });
       return {
+        ...statePart,
         products: newStatePart,
       };
     }
