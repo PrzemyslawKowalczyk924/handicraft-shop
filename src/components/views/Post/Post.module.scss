@@ -13,6 +13,11 @@
     display: flex;
     margin: 0 0 ($base-size * 3) 0;
   }
+
+  .price {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
 }
 
 .link {

@@ -17,7 +17,7 @@ import ListItem from '../../common/ListItem/ListItem';
 import Icon from '../../common/Icon/Icon';
 
 const Post = ({/* getProductById, */ 
-  id, user, title, photo, text, author, price, location, status, phone, created, updated, email }) => {
+  id, user, title, photo, text, author, price, addres, status, phone, created, updated, email }) => {
 
  /*  useEffect(() => {
     getProductById();
@@ -28,7 +28,12 @@ const Post = ({/* getProductById, */
     <div className={styles.root}>
       <Grid>
         <Row>
-          <PageTitle text={title} />
+          <Col sm={12} md={6} lg={3}>
+            <PageTitle text={title} />
+          </Col>
+          <Col className={styles.price} sm={12} md={6} lg={3}>
+            <ProductPrice icon={'money-bill-wave'} cost={price}/>
+          </Col>
         </Row>
           <DetailsBox>
             <Row className={styles.row}>
@@ -41,20 +46,19 @@ const Post = ({/* getProductById, */
             <Row className={styles.row}>
               <Col sm={12} md={6} lg={6}>
                 
-                  <Col md={12} lg={4}>
+                  <Col md={12} lg={8}>
                     
                     <div className={styles.intro}>
                       {HTMLParser(text)}
                     </div>
                     <List variant='light'>
-                      <ListItem title={'<strong>Published:</strong>'} icon={'calendar-alt'} created={created} />
-                      <ListItem title={'<strong>Last update:</strong>'} icon={'edit'} updated={updated} />
                       <ListItem title={'<strong>Author:</strong>' + author} icon={'user'} />
                       <ListItem title={status} icon={'spinner'} />
                       <ListItem title={email} icon={'envelope-square'} />
-                      <ListItem title={'Country' + location} icon={'globe-europe'} />
+                      <ListItem title={'Country' + addres} icon={'globe-europe'} />
                       <ListItem title={'Phone' + phone} icon={'phone'} />
-                      <ProductPrice icon={'money-bill-wave'} cost={price}/>
+                      <ListItem title={'<strong>Published:</strong>' + created} icon={'calendar-alt'} created={created} />
+                      <ListItem title={'<strong>Last update:</strong>' + updated} icon={'edit'} updated={updated} />
                       {/* user.status ? */ <Link to={`/post/${id}/edit`} className={styles.link}>
                         <Icon name={'cog'}/><strong>Edytuj Produkt</strong>
                       </Link> /* : null */}
