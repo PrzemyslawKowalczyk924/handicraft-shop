@@ -1,0 +1,141 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  color: $color-primary;  
+ 
+  .description {
+    width: 100%;
+    margin: 5px;
+    background-color: $color-dark;
+    //color: $color-light;
+    
+    label {
+      color: $color-light;
+    }
+    
+    div {
+      color: $color-light;
+    }
+  }
+
+  .paper {
+    display: flex;
+    
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.pixabay.com/photo/2016/11/21/17/57/wood-1846849_960_720.jpg");
+    background-color: unset;
+    //width: 50%;
+  }
+
+  .textField {
+    margin: 5px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.pixabay.com/photo/2016/11/21/17/57/wood-1846849_960_720.jpg");
+    color: $color-primary; 
+    
+    label {
+      color: $color-primary;
+    }
+    
+    div {
+      color: $color-light;
+    }
+
+  }
+
+  .intro {
+    display: flex;
+    margin: 0 0 ($base-size * 2) 0;
+    max-width: 446px;
+  }
+
+  .button {
+    background-color: $color-warning;
+    color: $color-light;
+    font-family: $font-text;
+    font-weight: bold;
+    text-shadow: 5px;
+    //margin-bottom: 35px;
+    //margin-left: 75px;
+    margin: 75px 90px;
+  }
+
+  .sendButton {
+    text-align: center;
+    flex-basis: 50%;
+    max-width: 100%;
+  }
+
+  .inputBox {
+    margin-top: 25px;
+    text-align: center;
+    flex-basis: 50%;
+    max-width: 100%;
+  }
+
+  .input {
+    display: none;
+  }
+
+  .productImage {
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+
+  .theadItem {
+    display: flex;
+    color: $color-light;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+}
+
+.theadItem {
+  text-align: left;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  //border-bottom: 1px solid $color-dark;
+
+  .item1{
+    width: 50px;
+  }
+  .item2{
+    width: 110px;
+  }
+  .item3{
+    width: 520px;
+  }
+  .item4{
+    width: 165px;
+  }
+  .item5{
+    width: 165px;
+  }
+  .item6{
+    width: 165px;
+  }
+  th, td {
+    color: $color-primary; 
+    font-size: 22px;
+    vertical-align: middle;
+    //border-bottom: 1px solid $color-dark;
+
+    span {
+      width: auto;
+      height: auto;
+      margin: 1px;
+    }
+  }
+  .totalPrice {
+    margin-left: 5px;
+    border: 1px solid $color-light;
+  }
+}
+
+table {
+  margin-right: auto;
+  margin-left: auto;
+}

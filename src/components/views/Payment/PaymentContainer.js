@@ -6,12 +6,14 @@ import {
   changeAmount,
   removeProduct,
   getTotalCost,
+  getPayment,
 } from '../../../redux/cartRedux';
 import Payment from './Payment';
 
 const mapStateToProps = state => ({
   productsInCart: getAll(state),
   amountOfProductsInCart: getCount(state),
+  paymentValue: getPayment(state),
 });
 
 const mapDispatchToProps = dispatch => ({

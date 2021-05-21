@@ -5,86 +5,127 @@ import shortid from 'shortid';
 
 import PageTitle from '../../common/PageTitle/PageTitle';
 import DetailsBox from '../../common/DetailsBox/DetailsBox';
-import DetailsImage from '../../common/DetailsImage/DetailsImage';
-import SideImage from '../../common/SideImage/SideImage';
 
 import styles from './Payment.module.scss';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
-import IconButton from '@material-ui/core/IconButton';
+import Paper from '@material-ui/core/Paper';
 
-const Payment = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCart}) => {
-  
-    const handleSubmit = (event) => {
-      event.preventDefault();
-  
-      let post = ({
-        _id: shortid(),
-        title: titleInput,
-        //photo: photoInput,
-        text: textInput,
-        price: priceInput,
-        email: emailInput,
-        author: authorInput,
-        location: locationInput,   
-        phone: phoneInput,
-      });
-      //addPost(post);
-    }
-  
-  
-    const [titleInput, setTitleInput] = useState('');
-    const [textInput, setTextInput] = useState('');
-    const [priceInput, setPriceInput] = useState('');
-    const [locationInput, setLocationInput] = useState('');
-    const [authorInput, setAuthorInput] = useState('');
-    const [phoneInput, setPhoneInput] = useState('');
-    const [emailInput, setEmailInput] = useState('');
-  
-    return (
-      <div className={styles.root}>
-        <form className={styles.root} noValidate autoComplete="off" onSubmit={handleSubmit} >
-          <Grid>
-            <PageTitle text={'Payment'} />
-            <div>
-            </div>
-          </Grid>
-          <DetailsBox>
-            <DetailsImage>
-              <input name="photo" accept="image/*" className={styles.input} id="icon-button-file" type="file" />
-              <label htmlFor="icon-button-file">
-                <IconButton color="primary" aria-label="upload picture" component="span">
-                  <PhotoCamera />
-                </IconButton>
-              </label>
-              <SideImage source={'https://images.unsplash.com/photo-1620295094360-bbed482aaaf8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'} />
-            </DetailsImage>
-            <Grid>
-              <Row>
-                <Col md={12} lg={6}>
-                    <TextField className={styles.textField} id="outlined-basic" label="Main title" variant="outlined" type="text" value={titleInput} onChange={(event) => setTitleInput(event.target.value)}/>
-                  <div className={styles.intro}>
-                    <TextField className={styles.description} id="outlined-multiline-static" label="Description" variant="outlined" multiline rows={5}  type="text" value={textInput} onChange={(event) => setTextInput(event.target.value)}/>
-                  </div>
-                    <TextField className={styles.textField} id="outlined-basic" label="Author" variant="outlined" type="text" value={authorInput} onChange={(event) => setAuthorInput(event.target.value)}/>
-                    <TextField className={styles.textField} id="outlined-basic" label="Email" variant="outlined" type="email" value ={emailInput} onChange={(event) => setEmailInput(event.target.value)}/>
-                    <TextField className={styles.textField} id="outlined-basic" label="Location" variant="outlined" type="text" value={locationInput} onChange={(event) => setLocationInput(event.target.value)}/>
-                    <TextField className={styles.textField} id="outlined-basic" label="Price" variant="outlined" type="number" value={priceInput} onChange={(event) => setPriceInput(event.target.value)}/>
-                    <TextField className={styles.textField} id="outlined-basic" label="Phone" variant="outlined" type="tel" value={phoneInput} onChange={(event) => setPhoneInput(event.target.value)}/>
-                </Col>
-              </Row>
-            </Grid>
-          </DetailsBox>
-          <Button className={styles.button} type="submit" variant="contained">Add Post</Button>
-        </form>
-      </div>
-    );
-    
+const Payment = ({paymentValue, getTotalCost, productsInCart, removeProduct, changeAmount, amountOfProductsInCart}) => {
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    let post = ({
+      _id: shortid(),
+      //photo: photoInput,
+      price: priceInput,
+      email: emailInput,
+      author: authorInput,
+      location: locationInput,   
+      phone: phoneInput,
+    });
+    //addPost(post);
   }
-
-  Payment.propTypes = {
-    addPost: PropTypes.func,
+  
+  const finalPrice = product => {
+    if (product.quantity === undefined) {
+      return product.price;
+    } else if (product.quantity < 0) {
+      return 0;
+    } else {
+      return product.quantity * product.price;
+    }
   };
+
+  const totalPrice = products => {
+    if (products.length > 0) {
+      const mapByPrice = products.map(
+        product =>
+          product.price * (product.quantity === undefined ? 1 : product.quantity)
+      );
+      return mapByPrice.reduce((prev, next) => prev + next);
+    }
+  };
+
+  const [priceInput, setPriceInput] = useState('');
+  const [locationInput, setLocationInput] = useState('');
+  const [authorInput, setAuthorInput] = useState('');
+  const [phoneInput, setPhoneInput] = useState('');
+  const [emailInput, setEmailInput] = useState('');
+  
+  return (
+    <div className={styles.root}>
+      <form noValidate autoComplete="off" onSubmit={handleSubmit} >
+        <Grid>
+          <PageTitle text={'Payment'} />
+          <div>
+          </div>
+        </Grid>
+        <DetailsBox>
+          <Grid>
+            <Row>
+              <Col sm={12} md={6} lg={6}>
+                <Paper className={styles.paper} elevation={3}>
+                  <table className={styles.table}>
+                    <tbody className={styles.tbody}>
+                      <tr className={styles.theadItem}>
+                        <th scope='col'>Total cost</th>
+                        <td className={styles.totalPrice}>
+                        <Paper>
+                          <span>$ </span>
+                          {totalPrice(productsInCart)}
+                        </Paper>  
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tbody>
+                      {productsInCart.map((product, id) => (
+                        <tr key={id} className={styles.theadItem}>
+                          <td>
+                            <p>{id}</p>
+                          </td>
+                          <td>
+                            <img
+                              className={styles.productImage}
+                              src={product.photo}
+                              alt=''
+                            ></img>
+                          </td>
+                          <td>{product.title}</td>
+                          {/*  <td>
+                            <span className='price-currency-symbol'>$ </span>
+                            {product.price}
+                          </td> */}
+                          <td>
+                            <span className='price-currency-symbol'>$ </span>
+                            {finalPrice(product)}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </Paper>
+              </Col>
+              <Col className={styles.inputBox} md={12} lg={6}>
+                  <TextField className={styles.textField} id="outlined-basic" label="Author" variant="outlined" type="text" value={authorInput} onChange={(event) => setAuthorInput(event.target.value)}/>
+                  <TextField className={styles.textField} id="outlined-basic" label="Email" variant="outlined" type="email" value ={emailInput} onChange={(event) => setEmailInput(event.target.value)}/>
+                  <TextField className={styles.textField} id="outlined-basic" label="Location" variant="outlined" type="text" value={locationInput} onChange={(event) => setLocationInput(event.target.value)}/>
+                  <TextField className={styles.textField} id="outlined-basic" label="Phone" variant="outlined" type="tel" value={phoneInput} onChange={(event) => setPhoneInput(event.target.value)}/>
+                  <Col className={styles.sendButton} md={12} lg={6}>
+                    <Button className={styles.button} type="submit" variant="contained">MAKE PAYMENT</Button>
+                  </Col>
+              </Col>
+            </Row>
+          </Grid>
+        </DetailsBox>
+      </form>
+    </div>
+  );
+}
+
+Payment.propTypes = {
+  addPost: PropTypes.func,
+};
   
 export default Payment;

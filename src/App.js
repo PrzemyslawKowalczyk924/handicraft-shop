@@ -13,7 +13,7 @@ import Post from './components/views/Post/PostContainer';
 import PostEdit from './components/views/PostEdit/PostEditContainer';
 import PostAdd from './components/views/PostAdd/PostAddContainer';
 import Cart from './components/features/Cart/CartContainer';
-import Payment from './components/views/Payment/Payment'
+import Payment from './components/views/Payment/PaymentContainer'
 import { NotFound } from './components/views/NotFound/NotFound';
 
 const theme = createMuiTheme({

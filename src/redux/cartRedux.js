@@ -1,5 +1,6 @@
 /* selectors */
 export const getAll = ({cart}) => cart.products;
+export const getPayment = ({cart}) => cart.payment;
 export const getCount = ({cart}) => cart.products.length;
 
 /* action name creator */
