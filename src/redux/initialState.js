@@ -341,6 +341,6 @@ export const initialState = {
       totalCost: '',
     },],
     payment: {},
-    order: {},
+    order: [],
   },
 };

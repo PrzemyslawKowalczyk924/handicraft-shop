@@ -13,6 +13,7 @@ const CHANGE_AMOUNT = createActionName('CHANGE_AMOUNT');
 const REMOVE_PRODUCT = createActionName('REMOVE_PRODUCT');
 const EDIT_PRODUCT = createActionName('EDIT_PRODUCT');
 const GET_TOTAL_COST = createActionName('GET_TOTAL_COST');
+const SEND_ORDER = createActionName('SEND_ORDER');
 
 /* action creators */
 export const addProduct = payload => ({ payload, type: ADD_PRODUCT });
@@ -20,6 +21,7 @@ export const changeAmount = payload => ({ payload, type: CHANGE_AMOUNT });
 export const removeProduct = payload => ({ payload, type: REMOVE_PRODUCT });
 export const editProduct = payload => ({ payload, type: EDIT_PRODUCT });
 export const getTotalCost = payload => ({ payload, type: GET_TOTAL_COST });
+export const sendOrder = payload => ({ payload, type: SEND_ORDER });
 
 /* reducer */
 export const reducer = (statePart = [], action = {}) => {
@@ -29,6 +31,12 @@ export const reducer = (statePart = [], action = {}) => {
         ...statePart,
         products: [...statePart.products, action.payload],
       };
+    }
+    case SEND_ORDER: {
+      return {
+        ...statePart,
+        order: [...statePart.order, action.payload],
+      }
     }
     case EDIT_PRODUCT: {
       const updatedData = statePart.data.map((product) => {

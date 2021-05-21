@@ -11,21 +11,21 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 
-const Payment = ({paymentValue, getTotalCost, productsInCart, removeProduct, changeAmount, amountOfProductsInCart}) => {
+const Payment = ({sendOrder, paymentValue, getTotalCost, productsInCart, removeProduct, changeAmount, amountOfProductsInCart}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     let post = ({
       _id: shortid(),
-      //photo: photoInput,
+      chossenProducts: allProducts,
       price: priceInput,
       email: emailInput,
       author: authorInput,
       location: locationInput,   
       phone: phoneInput,
     });
-    //addPost(post);
+    console.log(post);
+    sendOrder(post);
   }
   
   const finalPrice = product => {
@@ -48,11 +48,12 @@ const Payment = ({paymentValue, getTotalCost, productsInCart, removeProduct, cha
     }
   };
 
-  const [priceInput, setPriceInput] = useState('');
+  const [priceInput, setPriceInput] = useState(totalPrice(productsInCart));
   const [locationInput, setLocationInput] = useState('');
   const [authorInput, setAuthorInput] = useState('');
   const [phoneInput, setPhoneInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
+  const [allProducts] = useState(productsInCart);
   
   return (
     <div className={styles.root}>
