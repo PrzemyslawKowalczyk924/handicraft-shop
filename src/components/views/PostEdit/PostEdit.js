@@ -1,4 +1,4 @@
-import React, { useState, /* useEffect */ } from 'react';
+import React, { useState, useEffect } from 'react';
 /* import PropTypes from 'prop-types'; */
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
@@ -16,10 +16,10 @@ import IconButton from '@material-ui/core/IconButton';
 const PostEdit = ({getPostById, editPost, _id, title, photo, text, author, price, phone, location, status, created, updated, email}) => {
 //debugger;
 
-/* useEffect(() => {
+useEffect(() => {
   getPostById();
   //eslint-disable-next-line react-hooks/exhaustive-deps
-}, []) */
+}, [])
 
 //this useEffect will work always when [_id] parameter is on
 /* useEffect(() => {

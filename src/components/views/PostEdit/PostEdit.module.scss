@@ -1,11 +1,9 @@
 @import '../../../styles/settings.scss';
 
 .root {
-  background: $color-dark;
   
   .textField {
     margin: 5px;
-    background-color: $color-dark;
     color: $color-light;
     
     label {

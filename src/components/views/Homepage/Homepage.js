@@ -13,16 +13,16 @@ import {Grid, Row, Col} from 'react-flexbox-grid'; */
 
 const Homepage = ( {products, fetchPublishedPosts } ) => {
   
-  /* useEffect(() => {
+  useEffect(() => {
     fetchPublishedPosts();
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []) */
+  }, [])
   
   return(
     <div className={styles.root}>
       {products.length ? products.map(product => (
         <Paper elevation={3} className={styles.paper}>  
-          <PostsSummary key={product.id} {...product} />
+          <PostsSummary key={product._id} {...product} />
         </Paper>  
       )) : (
         <p>Sorry, no results found. Try adjusting the filters.</p>

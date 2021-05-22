@@ -1,7 +1,7 @@
 export const initialState = {
   products: {
     data: [
-      {
+      /* {
         id: '1',
         author: 'Neo Rivs',
         created: '17.07.2009',
@@ -315,7 +315,7 @@ export const initialState = {
         addres: '11 listopada street',
         email: 'neo@example.com',
         category: 'painting'
-      },
+      }, */
     ],
     loading: {
       active: false,
@@ -324,7 +324,8 @@ export const initialState = {
     singleProduct: {},
   },
   cart: {
-    products: [{
+    products: [
+     /*  {
       id: '10',
       author: 'Adam Czarnecki',
       created: '17.07.2009',
@@ -339,7 +340,8 @@ export const initialState = {
       email: 'neo@example.com',
       category: 'painting',
       totalCost: '',
-    },],
+    }, */
+  ],
     payment: {},
     order: [],
   },

@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 /* selectors */
 export const getAll = ({cart}) => cart.products;
 export const getPayment = ({cart}) => cart.payment;
@@ -14,6 +16,9 @@ const REMOVE_PRODUCT = createActionName('REMOVE_PRODUCT');
 const EDIT_PRODUCT = createActionName('EDIT_PRODUCT');
 const GET_TOTAL_COST = createActionName('GET_TOTAL_COST');
 const SEND_ORDER = createActionName('SEND_ORDER');
+const FETCH_START = createActionName('FETCH_START');
+const FETCH_SUCCESS = createActionName('FETCH_SUCCESS');
+const FETCH_ERROR = createActionName('FETCH_ERROR');
 
 /* action creators */
 export const addProduct = payload => ({ payload, type: ADD_PRODUCT });
@@ -22,6 +27,26 @@ export const removeProduct = payload => ({ payload, type: REMOVE_PRODUCT });
 export const editProduct = payload => ({ payload, type: EDIT_PRODUCT });
 export const getTotalCost = payload => ({ payload, type: GET_TOTAL_COST });
 export const sendOrder = payload => ({ payload, type: SEND_ORDER });
+export const fetchStarted = payload => ({ payload, type: FETCH_START });
+export const fetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
+export const fetchError = payload => ({ payload, type: FETCH_ERROR });
+
+/* THUNK */
+
+export const addToCartRequest = (product) => {
+  return (dispatch) => {
+    dispatch(fetchStarted());
+    axios.post("http://localhost:8000/api/cart", product)
+      .then(() => {
+        dispatch(addProduct(product));
+        dispatch(fetchSuccess());
+      })  
+    .catch((err) => {
+      dispatch(fetchError(err.message || true));
+    });
+  };
+};
+
 
 /* reducer */
 export const reducer = (statePart = [], action = {}) => {

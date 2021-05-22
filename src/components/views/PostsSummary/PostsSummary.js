@@ -7,18 +7,18 @@ import ProductPrice from '../../features/ProductPrice.js/ProductPrice';
 import Button from '@material-ui/core/Button';
 import Icon from '../../common/Icon/Icon';
 
-const PostsSummary = ({id, price, photo, title, addProduct}) => {
+const PostsSummary = ({_id, price, photo, title, addProduct}) => {
 
   const addToCart = event => {
     event.preventDefault();
-    addProduct({ id, price, title, photo, ...PostsSummary });
+    addProduct({ _id, price, title, photo, ...PostsSummary });
     console.log("addProduct")
   }
 
 return(
   <Col xs={12} sm={12} lg={12} className={styles.root}>
       <article className={styles.component}>
-    <Link to={`/post/${id}`} className={styles.link}>
+    <Link to={`/post/${_id}`} className={styles.link}>
         <img src={photo} alt={'some view'} />
     </Link>
         <h3 className={styles.title}>{title}</h3>
@@ -27,7 +27,7 @@ return(
           <ProductPrice cost={price} icon=''  />
         </div>
         <div className={styles.buttons}>
-        <Link to={`/post/${id}`} className={styles.buttonLink}>
+        <Link to={`/post/${_id}`} className={styles.buttonLink}>
           <Button variant="contained" className={styles.button}><Icon name="eye"/> Quick View</Button>
         </Link>
           <Button className={styles.button} variant="contained" onClick={(event) => addToCart(event)}><Icon name="shopping-basket" /> Add to Cart</Button>

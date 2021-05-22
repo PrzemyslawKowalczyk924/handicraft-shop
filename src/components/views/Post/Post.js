@@ -16,13 +16,13 @@ import List from '../../common/List/List';
 import ListItem from '../../common/ListItem/ListItem';
 import Icon from '../../common/Icon/Icon';
 
-const Post = ({/* getProductById, */ 
-  id, user, title, photo, text, author, price, addres, status, phone, created, updated, email }) => {
+const Post = ({getProductById, 
+  _id, user, title, photo, text, author, price, addres, status, phone, created, updated, email }) => {
 
- /*  useEffect(() => {
+  useEffect(() => {
     getProductById();
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []) */
+  }, [])
 
   return (
     <div className={styles.root}>
@@ -59,7 +59,7 @@ const Post = ({/* getProductById, */
                       <ListItem title={'Phone' + phone} icon={'phone'} />
                       <ListItem title={'<strong>Published:</strong>' + created} icon={'calendar-alt'} created={created} />
                       <ListItem title={'<strong>Last update:</strong>' + updated} icon={'edit'} updated={updated} />
-                      {/* user.status ? */ <Link to={`/post/${id}/edit`} className={styles.link}>
+                      {/* user.status ? */ <Link to={`/post/${_id}/edit`} className={styles.link}>
                         <Icon name={'cog'}/><strong>Edytuj Produkt</strong>
                       </Link> /* : null */}
                     </List>

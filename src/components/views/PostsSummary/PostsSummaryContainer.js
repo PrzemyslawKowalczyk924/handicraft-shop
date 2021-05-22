@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import PostsSummary from './PostsSummary';
 
-import { addProduct, getCount } from '../../../redux/cartRedux';
+import { addProduct, getCount, addToCartRequest } from '../../../redux/cartRedux';
 
 const mapStateToProps = state => ({
   cartAmount: getCount(state),

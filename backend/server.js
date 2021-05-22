@@ -3,7 +3,8 @@ const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
 
-const postsRoutes = require('./routes/posts.routes');
+const productsRoutes = require('./routes/products.routes');
+const cartRoutes = require('./routes/cart.routes');
 
 const app = express();
 
@@ -13,11 +14,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 /* API ENDPOINTS */
-app.use('/api', postsRoutes);
+app.use('/api', productsRoutes);
+app.use('/api', cartRoutes);
 
 /* API ERROR PAGES */
 app.use('/api', (req, res) => {
-  res.status(404).send({ post: 'Not found...' });
+  res.status(404).send({ product: 'Not found...' });
 });
 
 /* REACT WEBSITE */
@@ -27,7 +29,7 @@ app.use('*', (req, res) => {
 });
 
 /* MONGOOSE */
-mongoose.connect('mongodb://localhost:27017/bulletinBoard', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/handicraftShop', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.once('open', () => {
   console.log('Successfully connected to the database');
