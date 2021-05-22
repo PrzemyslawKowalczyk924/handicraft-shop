@@ -11,11 +11,12 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 
-const Payment = ({sendOrder, paymentValue, getTotalCost, productsInCart, removeProduct, changeAmount, amountOfProductsInCart}) => {
+const Payment = ({addToCartRequest, sendOrder, paymentValue, getTotalCost, productsInCart, removeProduct, changeAmount, amountOfProductsInCart}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let post = ({
+
+    let order = ({
       _id: shortid(),
       chossenProducts: allProducts,
       price: priceInput,
@@ -24,8 +25,8 @@ const Payment = ({sendOrder, paymentValue, getTotalCost, productsInCart, removeP
       location: locationInput,   
       phone: phoneInput,
     });
-    console.log(post);
-    sendOrder(post);
+    console.log(order);
+    addToCartRequest(order);
   }
   
   const finalPrice = product => {
@@ -126,7 +127,7 @@ const Payment = ({sendOrder, paymentValue, getTotalCost, productsInCart, removeP
 }
 
 Payment.propTypes = {
-  addPost: PropTypes.func,
+  addToCartRequest: PropTypes.func,
 };
   
 export default Payment;

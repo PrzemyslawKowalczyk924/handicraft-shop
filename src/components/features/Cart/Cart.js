@@ -9,12 +9,12 @@ const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCa
 
   const [value, setValue] = useState(0);
 
-  const removeFromCart = id => {
-    removeProduct({ id });
+  const removeFromCart = _id => {
+    removeProduct({ _id });
   };
 
-  const changeQuantity = (id, type) => {
-    changeAmount({ id, type });
+  const changeQuantity = (_id, type) => {
+    changeAmount({ _id, type });
   };
 
   const finalAmount = product => {
@@ -83,12 +83,12 @@ const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCa
             </thead>
 
             <tbody>
-              {productsInCart.map((product, id) => (
-                <tr key={id} className={styles.theadItem}>
+              {productsInCart.map((product, _id) => (
+                <tr key={_id} className={styles.theadItem}>
                   <th scope='row'>
                     <Button
                       className={styles.productRemover}
-                      onClick={() => removeFromCart(product.id)}
+                      onClick={() => removeFromCart(product._id)}
                     >
                       <Icon name="times-circle" />
                     </Button>
@@ -109,7 +109,7 @@ const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCa
                     <Button
                       variant='product'
                       className={styles.buttonQty}
-                      onClick={() => changeQuantity(product.id, 'decrease')}
+                      onClick={() => changeQuantity(product._id, 'decrease')}
                     >
                       <Icon name="minus" />
                     </Button>
@@ -123,7 +123,7 @@ const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCa
                     <Button
                       variant='product'
                       className={styles.buttonQty}
-                      onClick={() => changeQuantity(product.id, 'increase')}
+                      onClick={() => changeQuantity(product._id, 'increase')}
                     >
                       <Icon name="plus" />
                     </Button>

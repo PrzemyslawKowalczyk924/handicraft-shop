@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema({
+  chossenProducts: { type: Object },
   author: { type: String },
   created: { type: Date },
   updated: { type: Date },

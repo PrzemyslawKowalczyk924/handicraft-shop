@@ -38,7 +38,7 @@ export const addToCartRequest = (product) => {
     dispatch(fetchStarted());
     axios.post("http://localhost:8000/api/cart", product)
       .then(() => {
-        dispatch(addProduct(product));
+        dispatch(sendOrder(product));
         dispatch(fetchSuccess());
       })  
     .catch((err) => {
@@ -60,7 +60,7 @@ export const reducer = (statePart = [], action = {}) => {
     case SEND_ORDER: {
       return {
         ...statePart,
-        order: [...statePart.order, action.payload],
+        cart: [...statePart.cart, action.payload],
       }
     }
     case EDIT_PRODUCT: {
@@ -83,7 +83,7 @@ export const reducer = (statePart = [], action = {}) => {
     }
     case CHANGE_AMOUNT: {
       const newStatePart = statePart.products.map(product => {
-        if (product.id === action.payload.id) {
+        if (product._id === action.payload._id) {
           if (product.quantity == null) {
             product.quantity = 1;
           }
@@ -115,8 +115,35 @@ export const reducer = (statePart = [], action = {}) => {
       return {
         ...statePart,
         products: statePart.products.filter(
-          product => product.id !== action.payload.id
+          product => product._id !== action.payload._id
         ),
+      };
+    }
+    case FETCH_START: {
+      return {
+        ...statePart,
+        loading: {
+          active: true,
+          error: false,
+        },
+      };
+    }
+    case FETCH_SUCCESS: {
+      return {
+        ...statePart,
+        loading: {
+          active: false,
+          error: false,
+        },
+      };
+    }
+    case FETCH_ERROR: {
+      return {
+        ...statePart,
+        loading: {
+          active: false,
+          error: action.payload,
+        },
       };
     }
     default:

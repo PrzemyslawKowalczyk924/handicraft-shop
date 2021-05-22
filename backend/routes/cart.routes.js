@@ -30,16 +30,17 @@ router.get('/cart/:id', async (req, res) => {
 });
 
 router.post('/cart', async (req, res) => {
-  const { author, created, updated, status, title, text, price, phone, location } = req.fields;
-  const photo = req.files.photo;
-  const fileName = photo.path.split('/').slice(-1)[0];
+  console.log('req.body', req.body);
+  const { chossenProducts, price, author, email, phone, location } = req.body;
+  //const { author, email, phone, location } = req.fields;
   try {
     const newCart = new Cart({ 
-      author: author, created: created, 
-      updated: updated, status: status, 
-      title: title, text: text, 
-      photo: fileName, price: price, 
-      phone: phone, location: location });
+      chossenProducts: chossenProducts,
+      price: price, 
+      author: author, 
+      email: email,
+      phone: phone, 
+      location: location });
     await newCart.save();
     res.json(newCart);
   }

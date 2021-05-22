@@ -8,6 +8,7 @@ import {
   getTotalCost,
   getPayment,
   sendOrder,
+  addToCartRequest,
 } from '../../../redux/cartRedux';
 import Payment from './Payment';
 
@@ -23,6 +24,7 @@ const mapDispatchToProps = dispatch => ({
   removeProduct: payload => dispatch(removeProduct(payload)),
   getTotalCost: payload => dispatch(getTotalCost(payload)),
   sendOrder: payload => dispatch(sendOrder(payload)),
+  addToCartRequest: order => dispatch(addToCartRequest(order)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Payment);
