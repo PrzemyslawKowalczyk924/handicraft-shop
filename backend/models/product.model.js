@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
   author: { type: String },
-  created: { type: Date },
-  updated: { type: Date },
+  created: { type: String },
+  updated: { type: String },
   status: { type: String },
-  title: { type: String },
+  title: { type: String, require: true },
   text: { type: String },
-  photo: { type: String },
-  price: { type: Number },
+  photo: { type: String, require: true },
+  price: { type: Number, require: true },
   phone: { type: String },
   location: { type: String },
   addres: { type: String },

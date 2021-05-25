@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const mongoose = require('mongoose');
+const connectToDB = require('./db');
 
 const productsRoutes = require('./routes/products.routes');
 const cartRoutes = require('./routes/cart.routes');
@@ -12,6 +12,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// add routes
+//app.use('/api', require('./routes/products.routes'));
 
 /* API ENDPOINTS */
 app.use('/api', productsRoutes);
@@ -28,13 +31,8 @@ app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
-/* MONGOOSE */
-mongoose.connect('mongodb://localhost:27017/handicraftShop', { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
-db.once('open', () => {
-  console.log('Successfully connected to the database');
-});
-db.on('error', err => console.log('Error: ' + err));
+// connect to DB
+connectToDB();
 
 /* START SERVER */
 const port = process.env.PORT || 8000;
