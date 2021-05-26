@@ -79,6 +79,9 @@
     padding: 5px;
     text-align: center;
     color: $color-primary;
+    &:hover {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://cdn.pixabay.com/photo/2016/11/21/17/57/wood-1846849_960_720.jpg");
+    }
   }
 }
 

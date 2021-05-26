@@ -1,6 +1,7 @@
 @import '../../../styles/settings.scss';
 
 .component {
+  min-height: 66vh;
   position: relative;
   //padding: ($base-size * 5) 0;
   margin-bottom: ($base-size * 3);

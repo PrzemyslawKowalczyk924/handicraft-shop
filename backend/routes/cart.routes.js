@@ -32,7 +32,6 @@ router.get('/cart/:id', async (req, res) => {
 router.post('/cart', async (req, res) => {
   console.log('req.body', req.body);
   const { chossenProducts, price, author, email, phone, location } = req.body;
-  //const { author, email, phone, location } = req.fields;
   try {
     const newCart = new Cart({ 
       chossenProducts: chossenProducts,

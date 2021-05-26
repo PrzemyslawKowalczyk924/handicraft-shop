@@ -11,7 +11,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 
-const Payment = ({addToCartRequest, sendOrder, paymentValue, getTotalCost, productsInCart, removeProduct, changeAmount, amountOfProductsInCart}) => {
+const Payment = ({ addToCartRequest, productsInCart }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,7 +26,12 @@ const Payment = ({addToCartRequest, sendOrder, paymentValue, getTotalCost, produ
       phone: phoneInput,
     });
     console.log(order);
-    addToCartRequest(order);
+    if(order.author.length == 0 || order.email.length == 0 || order.location.length == 0 || order.phone.length == 0) {
+      alert('Fill all empty fields please');
+    } else {
+      addToCartRequest(order);
+      alert('Your order have been send!');
+    }
   }
   
   const finalPrice = product => {
@@ -85,7 +90,7 @@ const Payment = ({addToCartRequest, sendOrder, paymentValue, getTotalCost, produ
                       {productsInCart.map((product, id) => (
                         <tr key={id} className={styles.theadItem}>
                           <td>
-                            <p>{id}</p>
+                            <p>{id + 1}</p>
                           </td>
                           <td>
                             <img
