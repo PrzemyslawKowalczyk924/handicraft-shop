@@ -4,13 +4,19 @@ import Icon from '../../common/Icon/Icon';
 import Button from '../../common/Button/Button';
 import {Link} from 'react-router-dom';
 import shortid from 'shortid';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
-const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCart}) => {
+const Cart = ({productsInCart, removeProduct, leaveComment, changeAmount}) => {
 
   const [value, setValue] = useState(0);
 
   const removeFromCart = _id => {
     removeProduct({ _id });
+  };
+
+  const leaveCommentInput = (_id, comment) => {
+    console.log(comment);
+    leaveComment({ _id, comment });
   };
 
   const changeQuantity = (_id, type) => {
@@ -70,6 +76,9 @@ const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCa
                 <th scope='col' className={styles.item3}>
                   Product
                 </th>
+                <th scope='col' className={styles.item0}>
+                  Comment
+                </th>
                 <th scope='col' className={styles.item4}>
                   Price
                 </th>
@@ -101,6 +110,15 @@ const Cart = ({productsInCart, removeProduct, changeAmount, amountOfProductsInCa
                     ></img>
                   </td>
                   <td>{product.title}</td>
+                  <td key={_id}>
+                    <TextareaAutosize 
+                    className={styles.textarea} 
+                    aria-label="empty textarea" 
+                    placeholder="Empty" 
+                    
+                    onChange={(event) => leaveCommentInput(product._id, event.target.value)}
+                    />
+                  </td>
                   <td>
                     <span className='price-currency-symbol'>$ </span>
                     {product.price}

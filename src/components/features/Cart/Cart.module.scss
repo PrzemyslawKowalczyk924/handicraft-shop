@@ -42,6 +42,19 @@
   height: 30px;
 }
 
+.textarea {
+  resize: none;
+  overflow: auto;
+  opacity: 75%;
+  &:hover {
+    opacity: 100%;
+  }
+  &:focus {
+    border: none;
+    opacity: 100%;
+  }
+}
+
 .theadItem {
   text-align: left;
   padding-top: 20px;
@@ -54,7 +67,11 @@
     width: 110px;
   }
   .item3{
-    width: 520px;
+    width: 260px;
+  }
+  .item0 {
+    text-align: left;
+    width: 260px;
   }
   .item4{
     width: 165px;

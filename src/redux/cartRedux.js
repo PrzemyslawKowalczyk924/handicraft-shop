@@ -19,6 +19,7 @@ const SEND_ORDER = createActionName('SEND_ORDER');
 const FETCH_START = createActionName('FETCH_START');
 const FETCH_SUCCESS = createActionName('FETCH_SUCCESS');
 const FETCH_ERROR = createActionName('FETCH_ERROR');
+const LEAVE_COMMENT = createActionName('LEAVE_COMMENT');
 
 /* action creators */
 export const addProduct = payload => ({ payload, type: ADD_PRODUCT });
@@ -30,6 +31,7 @@ export const sendOrder = payload => ({ payload, type: SEND_ORDER });
 export const fetchStarted = payload => ({ payload, type: FETCH_START });
 export const fetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = payload => ({ payload, type: FETCH_ERROR });
+export const leaveComment = payload => ({ payload, type: LEAVE_COMMENT });
 
 /* THUNK */
 
@@ -79,6 +81,18 @@ export const reducer = (statePart = [], action = {}) => {
         data: [
           ...updatedData,
         ],
+      };
+    }
+    case LEAVE_COMMENT: {
+      const newStatePart = statePart.products.map(product => {
+        if (product._id === action.payload._id) {
+          product.comment = action.payload;
+        }
+        return product;
+      });
+      return {
+        ...statePart,
+        products: newStatePart,
       };
     }
     case CHANGE_AMOUNT: {
