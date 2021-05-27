@@ -41,6 +41,10 @@
 
   }
 
+  .commentSection {
+    border: dotted 1px $color-light;
+  }
+
   .intro {
     display: flex;
     margin: 0 0 ($base-size * 2) 0;

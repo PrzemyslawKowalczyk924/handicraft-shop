@@ -3,7 +3,6 @@ import styles from './Cart.module.scss';
 import Icon from '../../common/Icon/Icon';
 import Button from '../../common/Button/Button';
 import {Link} from 'react-router-dom';
-import shortid from 'shortid';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 const Cart = ({productsInCart, removeProduct, leaveComment, changeAmount}) => {
@@ -118,6 +117,7 @@ const Cart = ({productsInCart, removeProduct, leaveComment, changeAmount}) => {
                     
                     onChange={(event) => leaveCommentInput(product._id, event.target.value)}
                     />
+                    {/* <button type="submit"><Icon name="check-square" /></button> */}
                   </td>
                   <td>
                     <span className='price-currency-symbol'>$ </span>

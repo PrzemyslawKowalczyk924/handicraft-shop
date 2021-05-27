@@ -7,13 +7,18 @@ import ProductPrice from '../../features/ProductPrice.js/ProductPrice';
 import Button from '@material-ui/core/Button';
 import Icon from '../../common/Icon/Icon';
 
-const PostsSummary = ({_id, price, photo, title, addProduct}) => {
+const PostsSummary = ({_id, price, photo, title, addProduct, productsInCart, changeAmount}) => {
 
   const addToCart = event => {
     event.preventDefault();
+    
     addProduct({ _id, price, title, photo, ...PostsSummary });
     console.log("addProduct")
   }
+
+  const changeQuantity = (_id, type) => {
+    changeAmount({ _id, type });
+  };
 
 return(
   <Col xs={12} sm={12} lg={12} className={styles.root}>
