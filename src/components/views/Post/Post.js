@@ -70,34 +70,36 @@ const Post = ({getProductById, addProduct,
           </Col>
           <Col className={styles.price} sm={12} md={6} lg={3}>
             <ProductPrice icon={'money-bill-wave'} cost={price}/>
-            <tbody>
-              <tr key={_id} className={styles.theadItem}>
-                <td className={styles.quantity}>
-                  <Button
-                    variant='product'
-                    className={styles.buttonQty}
-                    onClick={() => minusQuantity()}
-                  >
-                    <Icon name="minus" />
-                  </Button>
-                  <input
-                    className={styles.inputNumber}
-                    type='text'
-                    min='0'
-                    value={quantity}
-                    onChange={event => setQuantity(event.currentTarget.value)}
-                  />
-                  <Button
-                    variant='product'
-                    className={styles.buttonQty}
-                    onClick={() => plusQuantity()}
-                  >
-                    <Icon name="plus" />
-                  </Button>
-                </td>
-              </tr>
-            </tbody>
-            <Button className={styles.button} variant="contained" onClick={(event) => addToCart(event)}><Icon name="shopping-basket" /> Add to Cart</Button>
+              <tbody>
+                <tr key={_id} className={styles.theadItem}>
+                  <td className={styles.quantity}>
+                    <Button
+                      variant='product'
+                      className={styles.buttonQty}
+                      onClick={() => minusQuantity()}
+                    >
+                      <Icon name="minus" />
+                    </Button>
+                    <input
+                      className={styles.inputNumber}
+                      type='text'
+                      min='0'
+                      value={quantity}
+                      onChange={event => setQuantity(event.currentTarget.value)}
+                    />
+                    <Button
+                      variant='product'
+                      className={styles.buttonQty}
+                      onClick={() => plusQuantity()}
+                    >
+                      <Icon name="plus" />
+                    </Button>
+                  </td>
+                </tr>
+              </tbody>
+            <div className={styles.buttons}>
+              <button className={styles.button} variant="contained" onClick={(event) => addToCart(event)}><Icon name="shopping-basket" /> Add to Cart</button>
+            </div>
           </Col>
         </Row>
           <DetailsBox>

@@ -40,7 +40,7 @@ const Header = ({/* user, setOnline, setOffline, */ cartAmount, productsInCart})
               {/* user.status ? */ <NavLink to='/post' activeClassName='active' /* onClick={() => setOffline(false)} */>Logout</NavLink> /* : null */ }
               {/* !user.status ? */ <NavLink to='/auth/google' activeClassName='active' /* onClick={() => setOnline(true)} */>Login with Google</NavLink> /* : null */ }
               {<NavLink to='/cart' >
-                <div className={styles.cart}><Icon className={styles.icon} name='shopping-cart' />{totalPrice(productsInCart)}</div>
+                <div className={styles.cart}><Icon className={styles.icon} name='shopping-cart' />{productsInCart.length == 0 ? 0 : totalPrice(productsInCart)}</div>
               </NavLink>}
             </nav>
           </Col>
