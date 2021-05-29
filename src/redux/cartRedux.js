@@ -21,6 +21,7 @@ const FETCH_SUCCESS = createActionName('FETCH_SUCCESS');
 const FETCH_ERROR = createActionName('FETCH_ERROR');
 const LEAVE_COMMENT = createActionName('LEAVE_COMMENT');
 const BANNER_CLOSE = createActionName('BANNER_CLOSE');
+const GET_TOTAL_CART_PRODUCTS = createActionName('GET_TOTAL_CART_PRODUCTS');
 
 /* action creators */
 export const addProduct = payload => ({ payload, type: ADD_PRODUCT });
@@ -34,6 +35,7 @@ export const fetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = payload => ({ payload, type: FETCH_ERROR });
 export const leaveComment = payload => ({ payload, type: LEAVE_COMMENT });
 export const bannerClose = payload => ({ payload, type: BANNER_CLOSE });
+export const getTotalCartProducts = payload => ({ payload, type: GET_TOTAL_CART_PRODUCTS });
 
 /* THUNK */
 
@@ -157,6 +159,14 @@ export const reducer = (statePart = [], action = {}) => {
       });
       return {
         payment: newStatePart,
+      };
+    }
+    case GET_TOTAL_CART_PRODUCTS: {
+      const newStatePart = statePart.products.map(product => {
+        return product.quantity;
+      });
+      return {
+        products: newStatePart,
       };
     }
     case REMOVE_PRODUCT: {

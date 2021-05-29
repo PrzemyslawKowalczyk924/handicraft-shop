@@ -8,7 +8,6 @@ const mapStateToProps = (state) => ({
   //user: getUserInfo(state),
   product: getSingleProduct(state), 
   ...getSingleProduct(state),
-  o: getAll(state),
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

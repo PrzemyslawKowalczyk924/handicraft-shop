@@ -9,7 +9,17 @@ import styles from './Header.module.scss';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Icon from '../../common/Icon/Icon';
 
-const Header = ({/* user, setOnline, setOffline, */ cartAmount}) => {
+const Header = ({/* user, setOnline, setOffline, */ cartAmount, productsInCart}) => {
+
+  const totalPrice = productsInCart => {
+    if (productsInCart.length > 0) {
+      const mapByPrice = productsInCart.map(
+        product =>
+          product.quantity = (product.quantity === undefined ? 1 : product.quantity)
+      );
+      return mapByPrice.reduce((prev, next) => prev + next);
+    }
+  };
 
   return (
     <div className={styles.root}>
@@ -30,7 +40,7 @@ const Header = ({/* user, setOnline, setOffline, */ cartAmount}) => {
               {/* user.status ? */ <NavLink to='/post' activeClassName='active' /* onClick={() => setOffline(false)} */>Logout</NavLink> /* : null */ }
               {/* !user.status ? */ <NavLink to='/auth/google' activeClassName='active' /* onClick={() => setOnline(true)} */>Login with Google</NavLink> /* : null */ }
               {<NavLink to='/cart' >
-                <div className={styles.cart}><Icon className={styles.icon} name='shopping-cart' />{cartAmount}</div>
+                <div className={styles.cart}><Icon className={styles.icon} name='shopping-cart' />{totalPrice(productsInCart)}</div>
               </NavLink>}
             </nav>
           </Col>

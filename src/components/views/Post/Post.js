@@ -18,7 +18,7 @@ import List from '../../common/List/List';
 import ListItem from '../../common/ListItem/ListItem';
 import Icon from '../../common/Icon/Icon';
 
-const Post = ({getProductById, productsInCart, addProduct,
+const Post = ({getProductById, addProduct,
   _id, user, title, photo, text, author, price, addres, status, phone, created, updated, email, changeAmount }) => {
     
   const [quantity, setQuantity] = useState(0);
@@ -31,7 +31,7 @@ const Post = ({getProductById, productsInCart, addProduct,
   const addToCart = event => {
     event.preventDefault();
     
-    addProduct({ _id: {shortid}, price, title, quantity, photo, ...Post });
+    addProduct({ _id, price, title, quantity, photo, ...Post });
     console.log("addProduct");
   }
 
