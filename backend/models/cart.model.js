@@ -14,7 +14,9 @@ const cartSchema = new mongoose.Schema({
   location: { type: String, require: true },
   addres: { type: String },
   email: { type: String, require: true },
-  category: { type: String }
+  category: { type: String },
+  comment: { type: String },
+  quantity: { type: Number }
 });
 
 module.exports = mongoose.model('Cart', cartSchema);

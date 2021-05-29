@@ -2,16 +2,17 @@ import { connect } from 'react-redux';
 import Post from './Post';
 import { getAll, getSingleProduct, fetchPublishedById} from '../../../redux/productsRedux';
 //import { getUserInfo } from '../../../redux/userRedux';
-import { changeAmount  } from '../../../redux/cartRedux';
+import { changeAmount, addProduct  } from '../../../redux/cartRedux';
 
 const mapStateToProps = (state) => ({
   //user: getUserInfo(state),
   product: getSingleProduct(state), 
   ...getSingleProduct(state),
-  productsInCart: getAll(state),
+  o: getAll(state),
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
+  addProduct: value => dispatch(addProduct(value)),
   getProductById: () => dispatch(fetchPublishedById(props.match.params.id)),
   changeAmount: payload => dispatch(changeAmount(payload)),
   });

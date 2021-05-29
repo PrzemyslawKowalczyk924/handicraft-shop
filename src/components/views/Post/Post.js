@@ -7,6 +7,7 @@ import styles from './Post.module.scss';
 
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import ProductPrice from '../../features/ProductPrice.js/ProductPrice';
+import shortid from 'shortid';
 
 import Button from '../../common/Button/Button';
 import PageTitle from '../../common/PageTitle/PageTitle';
@@ -17,19 +18,37 @@ import List from '../../common/List/List';
 import ListItem from '../../common/ListItem/ListItem';
 import Icon from '../../common/Icon/Icon';
 
-const Post = ({getProductById, productsInCart,
+const Post = ({getProductById, productsInCart, addProduct,
   _id, user, title, photo, text, author, price, addres, status, phone, created, updated, email, changeAmount }) => {
     
-  const [value, setValue] = useState(0);
-  
+  const [quantity, setQuantity] = useState(0);
+  console.log('true value!!', quantity);
   useEffect(() => {
     getProductById();
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const addToCart = event => {
+    event.preventDefault();
+    
+    addProduct({ _id: {shortid}, price, title, quantity, photo, ...Post });
+    console.log("addProduct");
+  }
 
   const changeQuantity = (_id, type) => {
     changeAmount({ _id, type });
+  };
+
+  const plusQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const minusQuantity = () => {
+    if(quantity <= 0) {
+      return setQuantity(0);
+    } else {
+      setQuantity(quantity - 1);
+    };
   };
 
   const finalAmount = product => {
@@ -52,34 +71,33 @@ const Post = ({getProductById, productsInCart,
           <Col className={styles.price} sm={12} md={6} lg={3}>
             <ProductPrice icon={'money-bill-wave'} cost={price}/>
             <tbody>
-              {productsInCart.map((product, _id) => (
-                <tr key={_id} className={styles.theadItem}>
-                  <td className={styles.quantity}>
-                    <Button
-                      variant='product'
-                      className={styles.buttonQty}
-                      onClick={() => changeQuantity(_id, 'decrease')}
-                    >
-                      <Icon name="minus" />
-                    </Button>
-                    <input
-                      className={styles.inputNumber}
-                      type='text'
-                      min='0'
-                      value={finalAmount(price)}
-                      onChange={event => setValue(event.currentTarget.value)}
-                    />
-                    <Button
-                      variant='product'
-                      className={styles.buttonQty}
-                      onClick={() => changeQuantity(_id, 'increase')}
-                    >
-                      <Icon name="plus" />
-                    </Button>
-                  </td>
-                </tr>
-              ))}
+              <tr key={_id} className={styles.theadItem}>
+                <td className={styles.quantity}>
+                  <Button
+                    variant='product'
+                    className={styles.buttonQty}
+                    onClick={() => minusQuantity()}
+                  >
+                    <Icon name="minus" />
+                  </Button>
+                  <input
+                    className={styles.inputNumber}
+                    type='text'
+                    min='0'
+                    value={quantity}
+                    onChange={event => setQuantity(event.currentTarget.value)}
+                  />
+                  <Button
+                    variant='product'
+                    className={styles.buttonQty}
+                    onClick={() => plusQuantity()}
+                  >
+                    <Icon name="plus" />
+                  </Button>
+                </td>
+              </tr>
             </tbody>
+            <Button className={styles.button} variant="contained" onClick={(event) => addToCart(event)}><Icon name="shopping-basket" /> Add to Cart</Button>
           </Col>
         </Row>
           <DetailsBox>

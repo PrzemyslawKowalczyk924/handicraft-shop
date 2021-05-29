@@ -16,7 +16,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'painting',
-      quantity: 0
     },
     {
       author: 'Trinity',
@@ -31,7 +30,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'craft',
-      quantity: 0
     },
     {
       id: '3',
@@ -47,7 +45,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'craft',
-      quantity: 0
     },
     {
       author: 'Wally Be',
@@ -62,7 +59,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'craft',
-      quantity: 0
     },
     {
       author: 'Will Smith',
@@ -77,7 +73,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'craft',
-      quantity: 0
     },
     {
       author: 'Dr John Doe',
@@ -92,7 +87,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'craft',
-      quantity: 0
     },
     {
       author: 'The Kilah',
@@ -107,7 +101,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'craft',
-      quantity: 0
     },
     {
       author: 'Stephen Spilberg',
@@ -122,7 +115,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'craft',
-      quantity: 0
     },
     {
       author: 'Japanese Guy',
@@ -137,7 +129,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'craft',
-      quantity: 0
     },
     {
       author: 'Adam Czarnecki',
@@ -152,7 +143,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'painting',
-      quantity: 0
     },
     {
       author: 'Vegan',
@@ -167,7 +157,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'painting',
-      quantity: 0
     },
     {
       author: 'Katarina Memfis',
@@ -182,7 +171,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'food',
-      quantity: 0
     },
     {
       author: 'Katarina Memfis',
@@ -197,7 +185,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'jewelry',
-      quantity: 0
     },
     {
       author: 'Katarina Memfis',
@@ -212,7 +199,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'jewelry',
-      quantity: 0
     },
     {
       author: 'Katarina Memfis',
@@ -227,7 +213,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'jewelry',
-      quantity: 0
     },
     {
       author: 'Anonimus',
@@ -242,7 +227,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'books',
-      quantity: 0
     },
     {
       author: 'White Wizzard',
@@ -257,7 +241,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'music',
-      quantity: 0
     },
     {
       author: 'Barbara Straisend',
@@ -272,7 +255,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'craft',
-      quantity: 0
     },
     {
       author: 'Robbin Hood',
@@ -287,7 +269,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'craft',
-      quantity: 0
     },
     {
       author: 'Robert Lewandowsky',
@@ -302,7 +283,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'game',
-      quantity: 0
     },
     {
       author: 'Leon Carpenter',
@@ -317,7 +297,6 @@ const loadTestData = async () => {
       addres: '11 listopada street',
       email: 'neo@example.com',
       category: 'painting',
-      quantity: 0
     }
   ];
 

@@ -21,7 +21,7 @@ const Homepage = ( {products, fetchPublishedPosts } ) => {
   return(
     <div className={styles.root}>
       {products.length ? products.map(product => (
-        <Paper elevation={3} className={styles.paper}>  
+        <Paper key={product._id} elevation={3} className={styles.paper}>  
           <PostsSummary key={product._id} {...product} />
         </Paper>  
       )) : (

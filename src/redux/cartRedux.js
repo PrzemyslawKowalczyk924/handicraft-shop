@@ -20,6 +20,7 @@ const FETCH_START = createActionName('FETCH_START');
 const FETCH_SUCCESS = createActionName('FETCH_SUCCESS');
 const FETCH_ERROR = createActionName('FETCH_ERROR');
 const LEAVE_COMMENT = createActionName('LEAVE_COMMENT');
+const BANNER_CLOSE = createActionName('BANNER_CLOSE');
 
 /* action creators */
 export const addProduct = payload => ({ payload, type: ADD_PRODUCT });
@@ -32,6 +33,7 @@ export const fetchStarted = payload => ({ payload, type: FETCH_START });
 export const fetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = payload => ({ payload, type: FETCH_ERROR });
 export const leaveComment = payload => ({ payload, type: LEAVE_COMMENT });
+export const bannerClose = payload => ({ payload, type: BANNER_CLOSE });
 
 /* THUNK */
 
@@ -54,10 +56,42 @@ export const addToCartRequest = (product) => {
 export const reducer = (statePart = [], action = {}) => {
   switch (action.type) {
     case ADD_PRODUCT: {
-      return {
+
+      let check = statePart.products.find(product => product._id === action.payload._id);
+
+      if(!check) {
+        return {
+          ...statePart,
+          products: [...statePart.products, action.payload],
+        };
+      } else {
+
+        let items = statePart.products.filter(product => product._id === action.payload._id);
+
+        items.forEach(item => {
+          item.isInCart = true;
+          console.log(item);
+          alert('Already in cart!');
+        });
+
+        return {
+          ...statePart
+        }
+      };
+      //OLD
+      /* return {
         ...statePart,
         products: [...statePart.products, action.payload],
-      };
+      }; */
+    }
+    case BANNER_CLOSE: {
+      statePart.products.forEach(product => {
+        product.isInCart = false;
+      });
+
+      return {
+        ...statePart
+      }
     }
     case SEND_ORDER: {
       return {
