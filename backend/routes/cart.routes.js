@@ -7,7 +7,7 @@ router.get('/cart', async (req, res) => {
   try {
     const result = await Cart
       .find()
-      .select('chossenProducts email author location phone')
+      .select('chossenProducts email author location phone comment')
       .sort({created: -1});
     if(!result) res.status(404).json({ cart: 'Not found' });
     else res.json(result);

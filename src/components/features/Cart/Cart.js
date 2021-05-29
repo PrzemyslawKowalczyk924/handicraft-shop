@@ -8,6 +8,7 @@ import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 const Cart = ({productsInCart, removeProduct, leaveComment, changeAmount}) => {
 
   const [value, setValue] = useState(0);
+  const [isActive, setActive] = useState(false);
 
   const removeFromCart = _id => {
     removeProduct({ _id });
@@ -15,6 +16,7 @@ const Cart = ({productsInCart, removeProduct, leaveComment, changeAmount}) => {
 
   const leaveCommentInput = (_id, comment) => {
     console.log(comment);
+
     leaveComment({ _id, comment });
   };
 
@@ -50,6 +52,25 @@ const Cart = ({productsInCart, removeProduct, leaveComment, changeAmount}) => {
       );
       return mapByPrice.reduce((prev, next) => prev + next);
     }
+  };
+
+  const activeComment = (event, _id) => {
+    event.preventDefault();
+
+    const mapProducts = productsInCart.map(
+      product => 
+        {if(product._id == _id) {
+          console.log('Hellooooooo its working!!!');
+          setActive(!isActive);
+        }}
+    )
+
+    //console.log(event);
+    //console.log(_id);
+
+    /* if(event.target._id == _id) {
+      setActive(!isActive);
+    } */
   };
 
   return (
@@ -110,14 +131,15 @@ const Cart = ({productsInCart, removeProduct, leaveComment, changeAmount}) => {
                   </td>
                   <td>{product.title}</td>
                   <td key={_id}>
-                    <TextareaAutosize 
-                    className={styles.textarea} 
+                    <TextareaAutosize
+                    key={_id} 
+                    className={isActive ? styles.textarea : styles.textareaOff} 
                     aria-label="empty textarea" 
-                    placeholder="Empty" 
-                    
+                    placeholder={product.comment === undefined ? "Empty" : product.comment.comment} 
+                    /* value={null} */
                     onChange={(event) => leaveCommentInput(product._id, event.target.value)}
                     />
-                    {/* <button type="submit"><Icon name="check-square" /></button> */}
+                    <button onClick={(event) => activeComment(event, product._id)} type="submit"><Icon name="comment" /></button>
                   </td>
                   <td>
                     <span className='price-currency-symbol'>$ </span>

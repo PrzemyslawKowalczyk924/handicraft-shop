@@ -18,7 +18,7 @@ import List from '../../common/List/List';
 import ListItem from '../../common/ListItem/ListItem';
 import Icon from '../../common/Icon/Icon';
 
-const Post = ({getProductById, addProduct,
+const Post = ({getProductById, addProduct, product,
   _id, user, title, photo, text, author, price, addres, status, phone, created, updated, email, changeAmount }) => {
     
   const [quantity, setQuantity] = useState(0);
@@ -61,15 +61,32 @@ const Post = ({getProductById, addProduct,
     }
   };
 
+  const finalPrice = product => {
+   /*  if (product.quantity === undefined) {
+      return product.price;
+    } else if (product.quantity < 0) {
+      return 0;
+    } else {
+      return product.quantity * product.price;
+    } */
+    return product.price * quantity;
+  };
+
   return (
     <div className={styles.root}>
       <Grid>
         <Row>
-          <Col sm={12} md={6} lg={3}>
-            <PageTitle text={title} />
+          <Col className={styles.pageTitle} sm={12} md={6} lg={6}>
+            <h1 className={styles.pageTitle} >{title}</h1>
+          </Col>
+          <Col className={styles.actualPrice} sm={12} md={6} lg={3}>
+            <td>
+              <span className='price-currency-symbol'>$ </span>
+              Cost: {price}
+            </td>
           </Col>
           <Col className={styles.price} sm={12} md={6} lg={3}>
-            <ProductPrice icon={'money-bill-wave'} cost={price}/>
+            <ProductPrice icon={'money-bill-wave'} cost={finalPrice(product)}/>
               <tbody>
                 <tr key={_id} className={styles.theadItem}>
                   <td className={styles.quantity}>
@@ -97,9 +114,9 @@ const Post = ({getProductById, addProduct,
                   </td>
                 </tr>
               </tbody>
-            <div className={styles.buttons}>
-              <button className={styles.button} variant="contained" onClick={(event) => addToCart(event)}><Icon name="shopping-basket" /> Add to Cart</button>
-            </div>
+              <div className={styles.buttons}>
+                <button className={styles.button} variant="contained" onClick={(event) => addToCart(event)}><Icon name="shopping-basket" /> Add to Cart</button>
+              </div>
           </Col>
         </Row>
           <DetailsBox>

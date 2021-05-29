@@ -108,7 +108,7 @@ const Payment = ({ addToCartRequest, productsInCart }) => {
                             <span className='price-currency-symbol'>$ </span>
                             {finalPrice(product)}
                           </td>
-                          <td className={styles.commentSection}>{product.comment.comment}</td>
+                          <td className={styles.commentSection}>{product.comment === undefined ? null : product.comment.comment}</td>
                         </tr>
                       ))}
                     </tbody>
