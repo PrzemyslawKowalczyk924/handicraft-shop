@@ -132,14 +132,13 @@ const Cart = ({productsInCart, removeProduct, leaveComment, changeAmount}) => {
                   <td>{product.title}</td>
                   <td key={_id}>
                     <TextareaAutosize
-                    key={_id} 
                     className={isActive ? styles.textarea : styles.textareaOff} 
                     aria-label="empty textarea" 
                     placeholder={product.comment === undefined ? "Empty" : product.comment.comment} 
                     /* value={null} */
                     onChange={(event) => leaveCommentInput(product._id, event.target.value)}
                     />
-                    <button onClick={(event) => activeComment(event, product._id)} type="submit"><Icon name="comment" /></button>
+                    <button className={styles.commentButton} onClick={(event) => activeComment(event, product._id)} type="submit"><Icon name="comment" /></button>
                   </td>
                   <td>
                     <span className='price-currency-symbol'>$ </span>

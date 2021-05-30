@@ -10,6 +10,7 @@ import styles from './Payment.module.scss';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
+import { Icon } from '@material-ui/core';
 
 const Payment = ({ addToCartRequest, productsInCart }) => {
 
@@ -77,7 +78,7 @@ const Payment = ({ addToCartRequest, productsInCart }) => {
                   <table className={styles.table}>
                     <tbody className={styles.tbody}>
                       <tr className={styles.theadItem}>
-                        <th scope='col'>Total cost</th>
+                        <th scope='col'><span className={styles.totalCost}>Total cost</span></th>
                         <td className={styles.totalPrice}>
                         <Paper>
                           <span>$ </span>
@@ -89,9 +90,9 @@ const Payment = ({ addToCartRequest, productsInCart }) => {
                     <tbody>
                       {productsInCart.map((product, id) => (
                         <tr key={id} className={styles.theadItem}>
-                          <td>
-                            <p>{id + 1}</p>
-                          </td>
+                          {/* <td>
+                            <p className={styles.totalCost}>{id + 1 + '.'}</p>
+                          </td> */}
                           <td>
                             <img
                               className={styles.productImage}
@@ -99,16 +100,16 @@ const Payment = ({ addToCartRequest, productsInCart }) => {
                               alt=''
                             ></img>
                           </td>
-                          <td>{product.title}</td>
+                          <td className={styles.productTitle}>{product.title}</td>
                           {/*  <td>
                             <span className='price-currency-symbol'>$ </span>
                             {product.price}
                           </td> */}
                           <td>
-                            <span className='price-currency-symbol'>$ </span>
                             {finalPrice(product)}
+                            <span className={styles.priceSymbol}>$</span>
                           </td>
-                          <td className={styles.commentSection}>{product.comment === undefined ? null : product.comment.comment}</td>
+                          {!product.comment ? null : <div className={styles.commentSection}>{product.comment === undefined ? null : 'Note: ' + product.comment.comment}</div>}
                         </tr>
                       ))}
                     </tbody>

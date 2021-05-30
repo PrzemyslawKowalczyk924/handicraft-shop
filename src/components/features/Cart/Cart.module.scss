@@ -43,6 +43,9 @@
 }
 
 .textarea {
+  vertical-align: bottom;
+  margin-top: auto;
+  margin-bottom: auto;
   resize: none;
   overflow: auto;
   opacity: 75%;
@@ -57,6 +60,11 @@
 
 .textareaOff {
   display: none;
+}
+
+.commentButton {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .theadItem {

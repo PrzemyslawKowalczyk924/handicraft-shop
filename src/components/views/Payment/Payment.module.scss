@@ -42,8 +42,21 @@
   }
 
   .commentSection {
-    border: dotted 1px $color-light;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.pixabay.com/photo/2016/11/21/17/57/wood-1846849_960_720.jpg");
+    //background-image: /* linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), */ url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM-s_zGBkz--rRWMMdxGeUSvVRgkClP__QMU2fHC3ULIbB4YhY-6L57m4NTWQm8HHMVbU&usqp=CAU");
+    //background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.pixabay.com/photo/2015/12/03/08/50/paper-1074131_960_720.jpg");
+    //background-repeat: no-repeat;
+    //background-size: cover;
+    //border: solid 1px $color-light;
+    color: $color-primary; 
+    border-radius: 5px;
+    max-width: 250px;
+    margin-left: 25px;
+    margin-right: auto;
+    padding: 5px;
+    box-shadow: 5px 3px 3px $color-darkness;
   }
+
 
   .intro {
     display: flex;
@@ -85,6 +98,7 @@
     height: 50px;
     margin-right: 15px;
     margin-left: 15px;
+    box-shadow: 5px 3px 3px $color-darkness;
   }
 
   .theadItem {
@@ -122,6 +136,7 @@
     width: 165px;
   }
   th, td {
+    //color: $color-light;
     color: $color-primary; 
     font-size: 22px;
     vertical-align: middle;
@@ -142,4 +157,13 @@
 table {
   margin-right: auto;
   margin-left: auto;
+}
+
+.totalCost {
+  color: $color-primary;
+}
+
+.productTitle {
+  margin-right: 15px;
+  //text-shadow: 10px 5px 5px $color-darkness;
 }
