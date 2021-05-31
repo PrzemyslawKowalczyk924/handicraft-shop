@@ -7,10 +7,8 @@ import styles from './Post.module.scss';
 
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import ProductPrice from '../../features/ProductPrice.js/ProductPrice';
-import shortid from 'shortid';
 
 import Button from '../../common/Button/Button';
-import PageTitle from '../../common/PageTitle/PageTitle';
 import DetailsBox from '../../common/DetailsBox/DetailsBox';
 import DetailsImage from '../../common/DetailsImage/DetailsImage';
 import SideImage from '../../common/SideImage/SideImage';
@@ -35,10 +33,6 @@ const Post = ({getProductById, addProduct, product,
     console.log("addProduct");
   }
 
-  const changeQuantity = (_id, type) => {
-    changeAmount({ _id, type });
-  };
-
   const plusQuantity = () => {
     setQuantity(quantity + 1);
   };
@@ -51,24 +45,7 @@ const Post = ({getProductById, addProduct, product,
     };
   };
 
-  const finalAmount = product => {
-    if (product.quantity === undefined) {
-      return 1;
-    } else if (product.quantity < 0) {
-      return 0;
-    } else {
-      return product.quantity;
-    }
-  };
-
   const finalPrice = product => {
-   /*  if (product.quantity === undefined) {
-      return product.price;
-    } else if (product.quantity < 0) {
-      return 0;
-    } else {
-      return product.quantity * product.price;
-    } */
     return product.price * quantity;
   };
 

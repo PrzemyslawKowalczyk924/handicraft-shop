@@ -13,7 +13,6 @@ const reducers = {
   products: productsReducer,
   cart: cartReducer,
 };
-console.log(reducers);
 
 // add blank reducers for initial state properties without reducers
 Object.keys(initialState).forEach(item => {

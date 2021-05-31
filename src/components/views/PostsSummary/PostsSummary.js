@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './PostsSummary.module.scss';
 import {Col} from 'react-flexbox-grid';
@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom';
 import ProductPrice from '../../features/ProductPrice.js/ProductPrice';
 import Button from '@material-ui/core/Button';
 import Icon from '../../common/Icon/Icon';
-import shortid from 'shortid';
 
 const PostsSummary = ({_id, price, photo, title, addProduct, productsInCart}) => {
 
@@ -14,13 +13,6 @@ const PostsSummary = ({_id, price, photo, title, addProduct, productsInCart}) =>
     event.preventDefault();
     
     addProduct({ _id, price, title, photo });
-    if(productsInCart.length) {
-     console.log(Object.is(productsInCart[0]._id, _id));
-     console.log(Object.keys(productsInCart));
-     console.log(Object.keys(productsInCart));
-    }
-
-    console.log('Add product')
   }
   
   return(

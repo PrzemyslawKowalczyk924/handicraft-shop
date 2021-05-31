@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {NavLink, Link} from 'react-router-dom';
-
-//import { connect } from 'react-redux';
-//import { getUserInfo, setUserOnline, setUserOffline } from '../../../redux/userRedux.js';
 
 import styles from './Header.module.scss';
 import { Grid, Row, Col } from 'react-flexbox-grid';
@@ -40,7 +37,7 @@ const Header = ({/* user, setOnline, setOffline, */ cartAmount, productsInCart})
               {/* user.status ? */ <NavLink to='/post' activeClassName='active' /* onClick={() => setOffline(false)} */>Logout</NavLink> /* : null */ }
               {/* !user.status ? */ <NavLink to='/auth/google' activeClassName='active' /* onClick={() => setOnline(true)} */>Login with Google</NavLink> /* : null */ }
               {<NavLink to='/cart' >
-                <div className={styles.cart}><Icon className={styles.icon} name='shopping-cart' />{productsInCart.length == 0 ? 0 : totalPrice(productsInCart)}</div>
+                <div className={styles.cart}><Icon className={styles.icon} name='shopping-cart' />{productsInCart.length === 0 ? 0 : totalPrice(productsInCart)}</div>
               </NavLink>}
             </nav>
           </Col>

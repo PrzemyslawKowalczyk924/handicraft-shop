@@ -10,7 +10,6 @@ import styles from './Payment.module.scss';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
-import { Icon } from '@material-ui/core';
 
 const Payment = ({ addToCartRequest, productsInCart }) => {
 
@@ -19,7 +18,7 @@ const Payment = ({ addToCartRequest, productsInCart }) => {
 
     let order = ({
       _id: shortid(),
-      chossenProducts: allProducts,
+      chosenProducts: allProducts,
       price: priceInput,
       email: emailInput,
       author: authorInput,
@@ -27,7 +26,7 @@ const Payment = ({ addToCartRequest, productsInCart }) => {
       phone: phoneInput,
     });
     console.log(order);
-    if(order.author.length == 0 || order.email.length == 0 || order.location.length == 0 || order.phone.length == 0) {
+    if(order.author.length === 0 || order.email.length === 0 || order.location.length === 0 || order.phone.length === 0) {
       alert('Fill all empty fields please');
     } else {
       addToCartRequest(order);
@@ -55,7 +54,7 @@ const Payment = ({ addToCartRequest, productsInCart }) => {
     }
   };
 
-  const [priceInput, setPriceInput] = useState(totalPrice(productsInCart));
+  const [priceInput] = useState(totalPrice(productsInCart));
   const [locationInput, setLocationInput] = useState('');
   const [authorInput, setAuthorInput] = useState('');
   const [phoneInput, setPhoneInput] = useState('');
@@ -101,15 +100,11 @@ const Payment = ({ addToCartRequest, productsInCart }) => {
                             ></img>
                           </td>
                           <td className={styles.productTitle}>{product.title}</td>
-                          {/*  <td>
-                            <span className='price-currency-symbol'>$ </span>
-                            {product.price}
-                          </td> */}
                           <td>
                             {finalPrice(product)}
                             <span className={styles.priceSymbol}>$</span>
                           </td>
-                          {!product.comment ? null : <div className={styles.commentSection}>{product.comment === undefined ? null : 'Note: ' + product.comment.comment}</div>}
+                          {!product.comment ? null : <td className={styles.commentSection}>{product.comment === undefined ? null : 'Note: ' + product.comment.comment}</td>}
                         </tr>
                       ))}
                     </tbody>

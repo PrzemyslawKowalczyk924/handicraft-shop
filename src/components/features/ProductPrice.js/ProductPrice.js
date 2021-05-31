@@ -4,16 +4,16 @@ import styles from './ProductPrice.module.scss';
 import Icon from '../../common/Icon/Icon';
 
 const ProductPrice = ({icon, cost}) => {
-  const [deliveryCost, setDeliveryCost] = useState(30);
+  const [deliveryCost] = useState(30);
   return (
     <div className={styles.component}>
       <Icon name={icon} />
       <span className={styles.description}>
-        <strong>Price: {cost} zł<br/>
+        <strong>Price: {cost} $<br/>
           {cost > 300 ? (
             <strong className={styles.delivery}>Free delivery cost</strong>
           ) : (
-            <strong className={styles.delivery}>Delivery: {cost + deliveryCost} zł</strong>
+            <strong className={styles.delivery}>Delivery: {cost + deliveryCost} $</strong>
           )}
         </strong>
       </span>

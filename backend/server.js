@@ -22,7 +22,7 @@ app.use('/api', cartRoutes);
 
 /* API ERROR PAGES */
 app.use('/api', (req, res) => {
-  res.status(404).send({ product: 'Not found...shit' });
+  res.status(404).send({ product: 'Not found...' });
 });
 
 /* REACT WEBSITE */

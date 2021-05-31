@@ -7,7 +7,7 @@ import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 const Cart = ({productsInCart, removeProduct, leaveComment, changeAmount}) => {
 
-  const [value, setValue] = useState(0);
+  const [setValue] = useState(0);
   const [isActive, setActive] = useState(false);
 
   const removeFromCart = _id => {
@@ -15,8 +15,6 @@ const Cart = ({productsInCart, removeProduct, leaveComment, changeAmount}) => {
   };
 
   const leaveCommentInput = (_id, comment) => {
-    console.log(comment);
-
     leaveComment({ _id, comment });
   };
 
@@ -57,20 +55,11 @@ const Cart = ({productsInCart, removeProduct, leaveComment, changeAmount}) => {
   const activeComment = (event, _id) => {
     event.preventDefault();
 
-    const mapProducts = productsInCart.map(
-      product => 
-        {if(product._id == _id) {
-          console.log('Hellooooooo its working!!!');
-          setActive(!isActive);
-        }}
+    productsInCart.forEach(product =>  
+      {if(product._id === _id) {
+        setActive(!isActive);
+      }}
     )
-
-    //console.log(event);
-    //console.log(_id);
-
-    /* if(event.target._id == _id) {
-      setActive(!isActive);
-    } */
   };
 
   return (

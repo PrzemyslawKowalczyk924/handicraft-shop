@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema({
-  chossenProducts: { type: Object, require: true},
+  chosenProducts: { type: Object, require: true},
   author: { type: String, require: true },
   created: { type: Date },
   updated: { type: Date },
