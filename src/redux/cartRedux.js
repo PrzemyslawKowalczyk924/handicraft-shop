@@ -142,7 +142,9 @@ export const reducer = (statePart = [], action = {}) => {
             product.totalCost = product.quantity * product.price;
           }
           if (action.payload.type === 'decrease') {
-            product.quantity = product.quantity - 1;
+            if (product.quantity > 1) {
+              product.quantity = product.quantity - 1;
+            }
             product.totalCost = product.quantity * product.price;
           }
         }
