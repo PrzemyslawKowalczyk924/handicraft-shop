@@ -7,7 +7,7 @@ const connectToDB = () => {
 
   /* MONGOOSE */
   // connect to DB
-  mongoose.connect('mongodb://localhost:27017/hendicraftShop', { useNewUrlParser: true, useUnifiedTopology: true });
+  mongoose.connect('mongodb://localhost:27017/handicraftShop', { useNewUrlParser: true, useUnifiedTopology: true });
   const db = mongoose.connection;
 
   // on success
