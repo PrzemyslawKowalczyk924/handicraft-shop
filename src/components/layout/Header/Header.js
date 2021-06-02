@@ -32,8 +32,8 @@ const Header = ({/* user, setOnline, setOffline, */ cartAmount, productsInCart})
           </Col>
           <Col md={6}>
             <nav>
-              {/* user.status ? */ <NavLink to='/post/add' activeClassName='active'>Add Post</NavLink> /* : null */ }
-              {/* user.status ? */ <NavLink to='/post' activeClassName='active'>My Post&apos;s</NavLink> /* : null */ }
+              {/* user.status ? */ <NavLink to='/post/add' activeClassName='active'>Add Product</NavLink> /* : null */ }
+              {/* user.status ? */ <NavLink to='/post' activeClassName='active'>My Product&apos;s</NavLink> /* : null */ }
               {/* user.status ? */ <NavLink to='/post' activeClassName='active' /* onClick={() => setOffline(false)} */>Logout</NavLink> /* : null */ }
               {/* !user.status ? */ <NavLink to='/auth/google' activeClassName='active' /* onClick={() => setOnline(true)} */>Login with Google</NavLink> /* : null */ }
               {<NavLink to='/cart' >

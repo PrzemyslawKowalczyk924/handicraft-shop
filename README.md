@@ -2,7 +2,9 @@
 
 ### `front-end`
 
-Project is about selfmade products. You can find Homepage witch display all avalible items in database. You can click on item and quick view his summary. You can also add product from main page, but either from quick view. Inside ProductSummary you can chose quantity of products. Inside the Cart component, you can do it same. But there you have more options, like delete or add comment. Payment section is about to send almoust compleate order. Just past your name, email etc and its done. Sadly the project have many ffunctionalities under construction. But after egzam I will going to finish it.
+Project is about selfmade products. You can find Homepage witch display all avalible items in database. You can click on item and quick view his summary. You can also add product from main page, but either from quick view. Inside ProductSummary you can chose quantity of products. Inside the Cart component, you can do the same. But there you have more options, like delete or add comment. Payment section is about to send almoust compleate order. Just past your name, email etc and its done. Sadly the project have many functionalities under construction. But after egzam I will going to finish it.
+
+P.S I have decided to not remove uncompleated components. 
 
 ### `back-end`
 
@@ -28,6 +30,7 @@ You will also see any lint errors in the console.
 ### `yarn test`
 
 Moust of test are not compleate.
+To be hones moust of my git commits where made with --no-verify command. Its becouse of lack of time.
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.

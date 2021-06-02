@@ -121,7 +121,7 @@ const Post = ({getProductById, addProduct, product,
                       <ListItem title={'<strong>Published:</strong>' + created} icon={'calendar-alt'} created={created} />
                       <ListItem title={'<strong>Last update:</strong>' + updated} icon={'edit'} updated={updated} />
                       {/* user.status ? */ <Link to={`/post/${_id}/edit`} className={styles.link}>
-                        <Icon name={'cog'}/><strong>Edytuj Produkt</strong>
+                        <Icon name={'cog'}/><strong>Edit Product(only for logged users)</strong>
                       </Link> /* : null */}
                     </List>
                   </Col>
