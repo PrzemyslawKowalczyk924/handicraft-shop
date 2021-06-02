@@ -3,9 +3,7 @@
 .component {
   min-height: 66vh;
   position: relative;
-  //padding: ($base-size * 5) 0;
   margin-bottom: ($base-size * 3);
-  //background-color: rgba(1,1,1,0.05);
 
   &.small {
     height: 200px;

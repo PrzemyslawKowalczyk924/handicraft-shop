@@ -1,7 +1,6 @@
 @import '../../../styles/settings.scss';
 
 .root {
-  //background: $color-dark;
   color: $color-light;
 
   .flag {
@@ -16,7 +15,6 @@
 
   .price {
     text-align: -webkit-center;
-    //margin: 0 15px 15px 0;
     margin-top: auto;
     margin-bottom: auto;
     padding-top: 20px;
@@ -43,10 +41,6 @@
     margin-left: 20px;
   }
 }
-
-/* .seperation {
-  margin-bottom: 15px;
-} */
 
 .row {
   margin-bottom: 25px;
@@ -77,9 +71,7 @@
 
 .buttons {
   @extend %hover-effect;
-  //display: flex;
   justify-content: space-between;
-  //opacity: 0;
   
   .button {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.pixabay.com/photo/2016/11/21/17/57/wood-1846849_960_720.jpg");

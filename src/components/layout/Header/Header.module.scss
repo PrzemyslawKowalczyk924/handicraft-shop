@@ -1,15 +1,12 @@
 @import '../../../styles/settings.scss';
 @import '../../../styles/global.scss';
-//@import '../../../styles/views.scss';
 
 .root {
-  //background: $color-darkness;
   padding: ($base-size * 1.5) 0;
   color: $color-light;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.pixabay.com/photo/2016/11/21/17/57/wood-1846849_960_720.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  //linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 
   nav {
     font-size: ($base-size * 1.3);
