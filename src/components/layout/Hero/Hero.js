@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Hero.module.scss';
-import Button from '../../common/Button/Button';
+import Button from '@material-ui/core/Button';
+import Icon from '../../common/Icon/Icon';
 
 const Hero = ({ image, name }) => (
   <div className={styles.root}>
@@ -14,7 +15,7 @@ const Hero = ({ image, name }) => (
         <h3>Check our selfmade products made for culture</h3>
       </div>
       <div className={styles.buttons}>
-        <Button variant='main-light'>ABOUT US</Button>
+        <Button variant="contained" className={styles.button}><Icon name="paper-plane"/> About Us</Button>
       </div>
     </div>
   </div>

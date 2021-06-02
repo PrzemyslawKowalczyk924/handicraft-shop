@@ -13,7 +13,7 @@ const ProductPrice = ({icon, cost}) => {
           {cost > 300 ? (
             <strong className={styles.delivery}>Free delivery cost</strong>
           ) : (
-            <strong className={styles.delivery}>Delivery: {cost + deliveryCost} $</strong>
+            <strong className={styles.delivery}>With delivery: {cost + deliveryCost} $</strong>
           )}
         </strong>
       </span>

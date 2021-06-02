@@ -1,8 +1,21 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About project
+
+### `front-end`
+
+Project is about selfmade products. You can find Homepage witch display all avalible items in database. You can click on item and quick view his summary. You can also add product from main page, but either from quick view. Inside ProductSummary you can chose quantity of products. Inside the Cart component, you can do it same. But there you have more options, like delete or add comment. Payment section is about to send almoust compleate order. Just past your name, email etc and its done. Sadly the project have many ffunctionalities under construction. But after egzam I will going to finish it.
+
+### `back-end`
+
+testData.js is component witch store all avalible products. db.js & server.js creates testData locally inside of your computer. Backend functionalities serve some CRUD operations, like .get all products, .get by id and .post the order. THUNK operation handle gathering the data from local database to your project.   
 
 ## Available Scripts
 
 In the project directory, you can run:
+### `npx nodemon backend/server.js`
+
+Runs the server. It will also create a local data base in mongoDB called:<br /> "handicraftShop". 
+<br />
+Fethermore server is running on [http://localhost:8000](http://localhost:8000) to view it in the browser.
 
 ### `yarn start`
 
@@ -13,6 +26,8 @@ The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
 ### `yarn test`
+
+Moust of test are not compleate.
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
@@ -26,43 +41,3 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
