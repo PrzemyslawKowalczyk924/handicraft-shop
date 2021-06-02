@@ -17,10 +17,9 @@ import ListItem from '../../common/ListItem/ListItem';
 import Icon from '../../common/Icon/Icon';
 
 const Post = ({getProductById, addProduct, product,
-  _id, user, title, photo, text, author, price, addres, status, phone, created, updated, email, changeAmount }) => {
+  _id, title, photo, text, author, price, addres, status, phone, created, updated, email }) => {
     
   const [quantity, setQuantity] = useState(0);
-  console.log('true value!!', quantity);
   useEffect(() => {
     getProductById();
     //eslint-disable-next-line react-hooks/exhaustive-deps
@@ -57,16 +56,14 @@ const Post = ({getProductById, addProduct, product,
             <h1 className={styles.pageTitle} >{title}</h1>
           </Col>
           <Col className={styles.actualPrice} sm={12} md={6} lg={3}>
-            <td>
-              <span className='price-currency-symbol'>$ </span>
-              Cost: {price}
-            </td>
+            <span className='price-currency-symbol'>$ </span>
+            Cost: {price}
           </Col>
           <Col className={styles.price} sm={12} md={6} lg={3}>
             <ProductPrice icon={'money-bill-wave'} cost={finalPrice(product)}/>
-              <tbody>
-                <tr key={_id} className={styles.theadItem}>
-                  <td className={styles.quantity}>
+              <div>
+                <div key={_id} className={styles.theadItem}>
+                  <div className={styles.quantity}>
                     <Button
                       variant='product'
                       className={styles.buttonQty}
@@ -88,9 +85,9 @@ const Post = ({getProductById, addProduct, product,
                     >
                       <Icon name="plus" />
                     </Button>
-                  </td>
-                </tr>
-              </tbody>
+                  </div>
+                </div>
+              </div>
               <div className={styles.buttons}>
                 <button className={styles.button} variant="contained" onClick={(event) => addToCart(event)}><Icon name="shopping-basket" /> Add to Cart</button>
               </div>

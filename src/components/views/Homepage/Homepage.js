@@ -6,6 +6,7 @@ import styles from './Homepage.module.scss';
 import {Row, Col} from 'react-flexbox-grid';
 import Paper from '@material-ui/core/Paper';
 import Hero from '../../layout/Hero/Hero';
+import FeatureBox from '../../layout/FeatureBox/FeatureBox';
 
 const Homepage = ( {products, fetchPublishedPosts } ) => {
   
@@ -18,7 +19,12 @@ const Homepage = ( {products, fetchPublishedPosts } ) => {
     <div className={styles.root}>
       <Row className={styles.container}>
         <Col sm={12} md={12} lg={12}>
-          <Hero className={styles.carousel}/>
+          <Hero className={styles.hero}/>
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={12} md={12} lg={12}>
+          <FeatureBox className={styles.featureBox}/>
         </Col>
       </Row>
       {products.length ? products.map(product => (

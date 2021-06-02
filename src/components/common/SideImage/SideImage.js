@@ -5,7 +5,7 @@ import styles from './SideImage.module.scss';
 const SideImage = props => (<img  className={styles.component} alt={'some view'} src={`${props.source}`} />);
 
 SideImage.propTypes = {
-  source: PropTypes.string.isRequired,
+  source: PropTypes.node,
 };
 
 export default SideImage;

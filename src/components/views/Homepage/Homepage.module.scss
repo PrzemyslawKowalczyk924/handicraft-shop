@@ -6,16 +6,16 @@
   flex-wrap: wrap;
 
   .hero {
-    margin: 0;
     width: 100vh;
   }
-  .carousel {
+  .featureBox {
     width: 100vh;
   }
 }
 
 .container {
   border-top: solid 2px black;
+  border-bottom: solid 2px black;
 }
 
 .paper {
