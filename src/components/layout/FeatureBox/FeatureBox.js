@@ -1,7 +1,5 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
 import styles from './FeatureBox.module.scss';
-import Button from '@material-ui/core/Button';
 import Icon from '../../common/Icon/Icon';
 
 const FeatureBox = () => (
@@ -15,9 +13,5 @@ const FeatureBox = () => (
     </div>
   </div>
 );
-
-/* FeatureBox.propTypes = {
-  
-}; */
 
 export default FeatureBox;
