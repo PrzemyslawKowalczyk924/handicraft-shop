@@ -4,10 +4,18 @@
   text-align: center;
   display: flex;
   flex-wrap: wrap;
+
+  .hero {
+    margin: 0;
+    width: 100vh;
+  }
+  .carousel {
+    width: 100vh;
+  }
 }
 
 .container {
-  max-width: 33.33333333333333%;
+  border-top: solid 2px black;
 }
 
 .paper {

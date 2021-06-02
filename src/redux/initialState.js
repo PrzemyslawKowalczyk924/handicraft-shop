@@ -324,24 +324,7 @@ export const initialState = {
     singleProduct: {},
   },
   cart: {
-    products: [
-     /*  {
-      id: '10',
-      author: 'Adam Czarnecki',
-      created: '17.07.2009',
-      updated: '03.05.2012',
-      status: 'published',
-      title: 'Mountain View',
-      text: 'This message is made by initialState.js component, and render fine. So Im happy',
-      photo: 'https://images.unsplash.com/photo-1581337204873-ef36aa186caa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1338&q=80',
-      price: 420,
-      phone: '234324543',
-      addres: '11 listopada street',
-      email: 'neo@example.com',
-      category: 'painting',
-      totalCost: '',
-    }, */
-  ],
+    products: [],
     order: [],
   },
 };

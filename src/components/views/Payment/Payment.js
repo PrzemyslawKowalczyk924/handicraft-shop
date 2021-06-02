@@ -66,8 +66,6 @@ const Payment = ({ addToCartRequest, productsInCart }) => {
       <form noValidate autoComplete="off" onSubmit={handleSubmit} >
         <Grid>
           <PageTitle text={'Payment'} />
-          <div>
-          </div>
         </Grid>
         <DetailsBox>
           <Grid>
