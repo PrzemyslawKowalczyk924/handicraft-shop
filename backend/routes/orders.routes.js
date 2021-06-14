@@ -2,13 +2,15 @@ const express = require('express');
 const router = express.Router();
 
 const Order = require('../models/order.model');
+const Client = require('../models/client.model');
 
 router.get('/orders', async (req, res) => {
   try {
     const result = await Order
       .find()
-      .select('chosenProducts email author location phone comment')
-      .sort({created: -1});
+      .select('chosenProducts client comment price')
+      .sort({created: -1})
+      .populate('client');
     if(!result) res.status(404).json({ order: 'Not found' });
     else res.json(result);
   }
@@ -20,7 +22,8 @@ router.get('/orders', async (req, res) => {
 router.get('/orders/:id', async (req, res) => {
   try {
     const result = await Order
-      .findById(req.params.id);
+      .findById(req.params.id)
+      .populate('client');
     if(!result) res.status(404).json({ order: 'Not found' });
     else res.json(result);
   }
@@ -31,15 +34,21 @@ router.get('/orders/:id', async (req, res) => {
 
 router.post('/orders', async (req, res) => {
   console.log('req.body', req.body);
-  const { chosenProducts, price, author, email, phone, location } = req.body;
+  const { chosenProducts, price, comment, author, email, phone, location } = req.body;
   try {
-    const newOrder = new Order({ 
-      chosenProducts: chosenProducts,
-      price: price, 
+    const newClient = new Client({
       author: author, 
       email: email,
       phone: phone, 
-      location: location });
+      location: location,
+    });
+    await newClient.save();
+    const newOrder = new Order({ 
+      chosenProducts: chosenProducts,
+      price: price, 
+      comment: comment, 
+      client: newClient._id,
+    });
     await newOrder.save();
     res.json(newOrder);
   }
@@ -48,5 +57,6 @@ router.post('/orders', async (req, res) => {
   }
 });
 
+//in case of delete & edit, remember to remove client also
 
 module.exports = router;
