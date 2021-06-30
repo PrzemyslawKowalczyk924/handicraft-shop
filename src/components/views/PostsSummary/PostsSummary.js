@@ -13,6 +13,11 @@ const PostsSummary = ({_id, price, photo, title, addProduct, productsInCart}) =>
     event.preventDefault();
     
     addProduct({ _id, price, title, photo });
+    
+    const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || productsInCart;
+    if(cartProducts && cartProducts.indexOf(_id) !== -1) return false;
+    cartProducts.push({ _id, price, title, photo });
+    localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
   }
   
   return(

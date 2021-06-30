@@ -1,11 +1,14 @@
 import {combineReducers, createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
+// Import the necessary methods for saving and loading localStorage
+import { save, load } from "redux-localstorage-simple";
 
 import { initialState } from './initialState';
 import { reducer as productsReducer } from './productsRedux';
 import { reducer as userReducer } from './userRedux';
 import { reducer as cartReducer } from './cartRedux';
+
 
 // define reducers
 const reducers = {
@@ -26,8 +29,8 @@ const combinedReducers = combineReducers(reducers);
 // create store
 export const store = createStore(
   combinedReducers,
-  initialState,
+  load({preloadedState: initialState}),
   composeWithDevTools(
-    applyMiddleware(thunk)
+    applyMiddleware(thunk, save())
   )
 );

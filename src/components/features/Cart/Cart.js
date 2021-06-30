@@ -11,7 +11,13 @@ const Cart = ({productsInCart, removeProduct, leaveComment, changeAmount}) => {
   const [isActive, setActive] = useState(false);
 
   const removeFromCart = _id => {
+    const cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
     removeProduct({ _id });
+    localStorage.removeItem('');
+    //localStorage.removeItem(_id);
+    console.log(localStorage);
+    //console.log(cartProducts);
+    //localStorage.removeItem('cartProducts');
   };
 
   const leaveCommentInput = (_id, comment) => {
@@ -61,6 +67,13 @@ const Cart = ({productsInCart, removeProduct, leaveComment, changeAmount}) => {
       }}
     )
   };
+
+    /* localStorage.setItem('addedProduct', JSON.stringify(productsInCart));
+
+    const cartProducts = JSON.parse(localStorage.getItem('productsInCart'));
+    console.log(cartProducts);
+
+    //localStorage.removeItem('addedProduct'); */
 
   return (
     <div className={styles.root}>

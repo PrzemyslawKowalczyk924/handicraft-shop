@@ -18,6 +18,10 @@ const Header = ({/* user, setOnline, setOffline, */ cartAmount, productsInCart})
     }
   };
 
+  /* const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || productsInCart;
+  console.log(cartProducts);
+  localStorage.removeItem('cartProducts') */
+
   return (
     <div className={styles.root}>
       <Grid className={styles.container}>

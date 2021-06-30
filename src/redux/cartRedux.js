@@ -4,6 +4,7 @@ import axios from 'axios';
 export const getAll = ({cart}) => cart.products;
 export const getPayment = ({cart}) => cart.payment;
 export const getCount = ({cart}) => cart.products.length;
+//export const getLocalStorageCart = () => localStorage.getItem('cartProducts');
 
 /* action name creator */
 const reducerName = 'cart';
@@ -50,7 +51,6 @@ export const addToCartRequest = (product) => {
     });
   };
 };
-
 
 /* reducer */
 export const reducer = (statePart = [], action = {}) => {
