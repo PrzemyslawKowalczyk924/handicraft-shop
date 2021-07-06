@@ -1,12 +1,14 @@
 @import '../../../styles/settings.scss';
 
 .root {
-  background: $color-dark;
-  
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.pixabay.com/photo/2015/12/03/08/50/paper-1074131_960_720.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
   .description {
     width: 100%;
     margin: 5px;
-    background-color: $color-dark;
+    background-color: transparent;
     color: $color-light;
     
     label {
@@ -20,7 +22,7 @@
 
   .textField {
     margin: 5px;
-    background-color: $color-dark;
+    background-color: transparent;
     color: $color-light;
     
     label {
