@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import shortid from 'shortid';
@@ -27,8 +27,6 @@ const PostAdd = ({ addPost }) => {
       text: textInput,
       price: priceInput,
       status: 'published',
-      /* created: ,
-      updated: , */
       email: emailInput,
       author: authorInput,
       location: locationInput,
@@ -37,6 +35,16 @@ const PostAdd = ({ addPost }) => {
     addPost(post);
   }
 
+  const imgInp = {};
+  const blah = {};
+  imgInp.onchange = () => {
+    const [file] = imgInp.files;
+    if (file) {
+      blah.src = URL.createObjectURL(file);
+      console.log(blah);
+    }
+  }
+  
   const [titleInput, setTitleInput] = useState('');
   const [photoInput, setPhotoInput] = useState('');
   const [textInput, setTextInput] = useState('');
@@ -45,6 +53,32 @@ const PostAdd = ({ addPost }) => {
   const [authorInput, setAuthorInput] = useState('');
   const [phoneInput, setPhoneInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
+  //previev uploaded img
+  const [selectedFile, setSelectedFile] = useState();
+  const [preview, setPreview] = useState();
+
+  useEffect(() => {
+    if (!selectedFile) {
+        setPreview(undefined)
+        return
+    }
+
+    const objectUrl = URL.createObjectURL(selectedFile)
+    setPreview(objectUrl)
+
+    // free memory when ever this component is unmounted
+    return () => URL.revokeObjectURL(objectUrl)
+}, [selectedFile])
+
+const onSelectFile = e => {
+    if (!e.target.files || e.target.files.length === 0) {
+        setSelectedFile(undefined)
+        return
+    }
+
+    // I've kept this example simple by using the first image instead of multiple
+    setSelectedFile(e.target.files[0])
+}
 
   return (
     <div className={styles.root}>
@@ -52,13 +86,16 @@ const PostAdd = ({ addPost }) => {
         <Grid>
           <DetailsBox>
             <DetailsImage>
-              <input name="photo" accept="image/*" className={styles.input} id="icon-button-file" type="file" value={photoInput} onChange={(event) => setPhotoInput(event.target.value)} />
-              <label htmlFor="icon-button-file">
+              {/* <input name="photo" accept="image/*" className={styles.input} id="imgInp" type="file" value={photoInput} onChange={(event) => setPhotoInput(event.target.value)} /> */}
+              <input name="photo" accept="image/*" className={styles.input} id="imgInp" type="file" value={photoInput} onChange={onSelectFile} />
+              {selectedFile &&  <img src={preview} /> }
+              <label id="imgInp" htmlFor="imgInp">
                 <IconButton color="primary" aria-label="upload picture" component="span">
                   <PhotoCamera />
                 </IconButton>
               </label>
-              <SideImage source={'https://images.unsplash.com/photo-1620295094360-bbed482aaaf8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'} />
+              {/* <SideImage source={} /> */}
+              <img id="blah" src="*" alt="your image" />
             </DetailsImage>
             <Grid>
               <Row>
