@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
+  email: { type: String },
   author: { type: String },
-  created: { type: String },
-  updated: { type: String },
   status: { type: String },
   title: { type: String, require: true },
   text: { type: String },
@@ -12,7 +11,6 @@ const productSchema = new mongoose.Schema({
   phone: { type: String },
   location: { type: String },
   addres: { type: String },
-  email: { type: String },
   category: { type: String }
 });
 

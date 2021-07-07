@@ -73,11 +73,20 @@ export const fetchPublishedById = (id) => {
 export const addPostRequest = (post) => {
   return (dispatch) => {
     dispatch(fetchStarted());
-    axios.post("http://localhost:8000/api/products/add", post)
-      .then(() => {
-        dispatch(addPost(post));
-        dispatch(fetchSuccess());
-      })  
+    const form = new FormData();
+    for (let param in post) {
+      form.append(param, post[param]);
+    }
+    axios({
+      method: "post",
+      url: "http://localhost:8000/api/products/add",
+      data: form,
+      headers: { "Content-Type": "multipart/form-data" },
+    })
+    .then(() => {
+      dispatch(addPost(post));
+      dispatch(fetchSuccess());
+    })  
     .catch((err) => {
       dispatch(fetchError(err.message || true));
     });

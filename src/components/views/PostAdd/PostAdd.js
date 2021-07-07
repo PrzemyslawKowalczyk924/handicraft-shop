@@ -23,7 +23,7 @@ const PostAdd = ({ addPost }) => {
     let post = ({
       _id: shortid(),
       title: titleInput,
-      photo: photoInput,
+      photo: selectedFile,
       text: textInput,
       price: priceInput,
       status: 'published',
@@ -46,14 +46,12 @@ const PostAdd = ({ addPost }) => {
   }
   
   const [titleInput, setTitleInput] = useState('');
-  const [photoInput, setPhotoInput] = useState('');
   const [textInput, setTextInput] = useState('');
   const [priceInput, setPriceInput] = useState('');
   const [locationInput, setLocationInput] = useState('');
   const [authorInput, setAuthorInput] = useState('');
   const [phoneInput, setPhoneInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
-  //previev uploaded img
   const [selectedFile, setSelectedFile] = useState();
   const [preview, setPreview] = useState();
 
@@ -66,7 +64,6 @@ const PostAdd = ({ addPost }) => {
     const objectUrl = URL.createObjectURL(selectedFile)
     setPreview(objectUrl)
 
-    // free memory when ever this component is unmounted
     return () => URL.revokeObjectURL(objectUrl)
 }, [selectedFile])
 
@@ -76,7 +73,6 @@ const onSelectFile = e => {
         return
     }
 
-    // I've kept this example simple by using the first image instead of multiple
     setSelectedFile(e.target.files[0])
 }
 
@@ -87,7 +83,7 @@ const onSelectFile = e => {
           <DetailsBox>
             <DetailsImage>
               {/* <input name="photo" accept="image/*" className={styles.input} id="imgInp" type="file" value={photoInput} onChange={(event) => setPhotoInput(event.target.value)} /> */}
-              <input name="photo" accept="image/*" className={styles.input} id="imgInp" type="file" value={photoInput} onChange={onSelectFile} />
+              <input name="photo" accept="image/*" className={styles.input} id="imgInp" type="file" onChange={onSelectFile} />
               {selectedFile &&  <img src={preview} /> }
               <label id="imgInp" htmlFor="imgInp">
                 <IconButton color="primary" aria-label="upload picture" component="span">
@@ -95,7 +91,6 @@ const onSelectFile = e => {
                 </IconButton>
               </label>
               {/* <SideImage source={} /> */}
-              <img id="blah" src="*" alt="your image" />
             </DetailsImage>
             <Grid>
               <Row>
