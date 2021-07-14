@@ -8,6 +8,10 @@ const ordersRoutes = require('./routes/orders.routes');
 
 const app = express();
 
+/* SESSIONS */
+const session = require('express-session');
+app.use(session({secret: 'shhh!'}));
+
 /* MIDDLEWARE */
 app.use(cors());
 app.use(express.json());
