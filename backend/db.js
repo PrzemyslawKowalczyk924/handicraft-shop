@@ -18,6 +18,7 @@ const connectToDB = () => {
 
   // on error
   db.on('error', (err) => console.log('Error ' + err));
+  return db;
 }
 
 module.exports = connectToDB;
