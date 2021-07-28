@@ -36,13 +36,10 @@ router.post('/orders', async (req, res) => {
   console.log('req.body', req.body);
   const { chosenProducts, price, comment, author, email, phone, location } = req.body;
   try {
-    const newClient = new Client({
-      author: author, 
-      email: email,
-      phone: phone, 
-      location: location,
-    });
+    const clientData = req.session.client || {author, phone, location, email};
+    const newClient = new Client(clientData);
     await newClient.save();
+    req.session.client = {...clientData};
     const newOrder = new Order({ 
       chosenProducts: chosenProducts,
       price: price, 
