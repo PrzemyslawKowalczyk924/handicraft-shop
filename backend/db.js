@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 // func for loading example data
 const loadTestData = require('./testData');
 
-const connectToDB = () => {
+const connectToDB = async () => {
 
   /* MONGOOSE */
   // connect to DB
-  mongoose.connect('mongodb://localhost:27017/handicraftShop', { useNewUrlParser: true, useUnifiedTopology: true });
+  await mongoose.connect('mongodb://localhost:27017/handicraftShop', { useNewUrlParser: true, useUnifiedTopology: true });
   const db = mongoose.connection;
 
   // on success

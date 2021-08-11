@@ -8,7 +8,7 @@ const ordersRoutes = require('./routes/orders.routes');
 
 /* SESSIONS */
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo');
 
 const app = express();
 
@@ -21,12 +21,16 @@ app.use(express.urlencoded({ extended: false }));
 //app.use('/api', require('./routes/products.routes'));
 
 // connect to DB
-const db = connectToDB();
+const startSession = async () => {
+  const db = connectToDB();
+  
+  app.use(session({
+    secret: 'shhh!',
+    store: new MongoStore({ mongoUrl: 'mongodb://localhost:27017/handicraftShop' }),
+  }));
+}
 
-app.use(session({
-  secret: 'shhh!',
-  store: new MongoStore({ mongooseConnection: db }),
-}));
+startSession();
 
 /* API ENDPOINTS */
 app.use('/api', productsRoutes);
