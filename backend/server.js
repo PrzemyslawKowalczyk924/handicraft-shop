@@ -13,7 +13,7 @@ const MongoStore = require('connect-mongo');
 const app = express();
 
 /* MIDDLEWARE */
-app.use(cors());
+app.use(cors({origin: 'http://localhost:3000'}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -21,16 +21,16 @@ app.use(express.urlencoded({ extended: false }));
 //app.use('/api', require('./routes/products.routes'));
 
 // connect to DB
-const startSession = async () => {
-  const db = connectToDB();
+const db = connectToDB();
   
-  app.use(session({
-    secret: 'shhh!',
-    store: new MongoStore({ mongoUrl: 'mongodb://localhost:27017/handicraftShop' }),
-  }));
-}
+app.set('trust proxy', 1);
+app.use(session({
+  secret: 'shhh!',
+  store: new MongoStore({ mongoUrl: 'mongodb://localhost:27017/handicraftShop' }),
+}));
 
-startSession();
+
+//credentials: 'include'
 
 /* API ENDPOINTS */
 app.use('/api', productsRoutes);

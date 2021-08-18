@@ -41,6 +41,7 @@ export const getTotalCartProducts = payload => ({ payload, type: GET_TOTAL_CART_
 export const addToCartRequest = (product) => {
   return (dispatch) => {
     dispatch(fetchStarted());
+    axios.defaults.withCredentials = true;
     axios.post("http://localhost:8000/api/orders", product)
       .then(() => {
         dispatch(sendOrder(product));
